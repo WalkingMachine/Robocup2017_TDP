@@ -1,49 +1,44 @@
 \section*{Robot SARA Hardware Description}
-\textit{(In this section briefly describe the software and hardware of the robot)}
-
 
 \setlength\intextsep{0pt}
 \begin{wrapfigure}[10]{r}{0.3\textwidth}
 	\centering
-	\includegraphics[width=0.4\textwidth]{images/wall-e.jpg}
-	\caption{Robot WALL-E}
+	\includegraphics[width=0.25\textwidth]{images/sara.png}
+	\caption{Robot SARA}
 	\label{fig:wall-e}
 \end{wrapfigure}
 
-Robot WALL-E has the patented \textit{BnL Optimized Design} for garbage recollection. Specifications are as follows:
+Specifications for robot SARA are as follows:
 
 \begin{itemize}
-	\item Base: BnL all-terrain base (differential pair), 2.5m/s max speed.
-	\item Torso: BnL compressor with solar charger.
-	\item Left and right arms: Mounted on torso. 7 DOF, anthropomorphic, BnL Design. Maximum load: 20kg.
-	\item Neck: BnL telescopic neck with pan and tilt.
-	\item Head: 1DOF BnL Expressive Eyes
-	\item External devices: None
-	\item Robot dimensions: height: 1.2m (max), width: 0.7m depth 0.8m
-	\item Robot weight: 50kg.
+	\item Base: Custom base with fully holonomic Mecanum wheel platform.
+	\item Torso: 1 vertical DoF (future implementation).
+	\item Right arm: Mounted on torso. 5-DoF custom arm made of Kinova motors.
+	\item Neck: Tilt unit using one Dynamixel MX-64R servo actuator.
+	\item Head: Custom head made of RGB neopixels leds and Asus Xtion Pro.
+	\item Gripper: Robotiq hand 2 fingers 85mm.
+	\item Robot dimensions: Base : 0,61m X 0,77m Height : 1,68m.
+	\item Robot weight: 100kg.
+	\item Additional sensors: Hokuyo UTM-30LX on base.
+	\item Microphone: Rode microphone
+	\item Batteries: 1x 24V 8 cells Lithium-ion battery
+	\item Computer: 1x Lenovo p50 with 32GB RAM and nVidia Quadro M2000 4GB, 1x BeagleBone Black
+	
 \end{itemize}
 
-\textit{Also our robot incorporates the following devices:}
-
-\begin{itemize}
-	\item \BnL Battery charge indicator
-	\item \BnL Auto-focus all-purpose cameras
-	\item \BnL 7DOF heavy duty fingers
-	\item \BnL Cockroach
-\end{itemize}
 
 \section*{Robot's Software Description}
-Please describe in this section the software you are using to control your robot.
-Consider the following example:
 
-\textit{For our robot we are using the following software:}
+
+For our robot we are using the following software:
 
 \begin{itemize}
-	\item Platform: Robotic Operating System (ROS)
-	\item Navigation, localization and mapping: RTabMap
+	\item Platform: Robotic Operating System (ROS) Indigo
+	\item Navigation, localization and mapping: RTAB-Map, Gmapping, AMCL, DWA
 	\item Face recognition: Cob people detection
-	\item Speech recognition: BnL All-purpose recognizer. Please refer to [1, 2, 3]
-	\item Speech generation: None. Not designed for human interaction.
-	\item Object recognition: BnL Trash Seeker Algorithm. See description on previous sections.
-	\item Arms control and two-hand coordination: BnL automatic controller. Please refer to [4, 5, 6]
+	\item Speech recognition: Pocketsphinx
+	\item Speech generation: Espeak
+	\item Object recognition: Object recognition kitchen
+	\item Arms control: Moveit and Kinova API
+	\item Task executors: SMACH
 \end{itemize}
