@@ -65,13 +65,19 @@ The next section will discuss the hardware design of SARA. Perceptions and decis
 % We are Buy n Large. We have no competitors so no background is required.
 \lipsum[1-3]
 
+\section{Software Architecture}
+\tab Our software architecture is based on ROS (Robot Operating System). This allows us to build complex software in a short amount of time. 
+
 \section{Perception}
 
 \tab This year one of our new feature for our perception is an object classifier based on TensorFlow. This new approach is faster than our old method but requires some careful preparation. Our classifier is capable of classifying almost all the object found in an ordinary household. \\
 
-We upgrade our robot with a second camera, a kinect v2 from microsoft. This camera enables better point clouds and also better skeleton mesh to detect people. \\
+We upgrade our robot with a second camera, a kinect v2 from Microsoft. This camera enables better point clouds and also better skeleton mesh to detect people. \\
 
-We also implement a gender recognition system on board of S.A.R.A.
+\section{Artificial Intelligence}
+\tab From last year experience, we made some change to the human machine interface. \\
+
+The first change was to implement a state machine to reduce the number of launch file. This change permits us to reduce the time to setup the robot between task. 
 
 
 
