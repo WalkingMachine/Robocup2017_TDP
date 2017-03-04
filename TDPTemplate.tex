@@ -26,6 +26,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{tabto}
 
 \usepackage{lipsum}
 \newcommand{\BnL}[1][1em]{ \includegraphics[width=#1]{images/bnl.jpg} }
@@ -34,7 +35,7 @@
 
 \title{Walking Machine 2017 Team Description Paper}
 
-\author{Jeffrey Cousineau \and Co-author \and Team Members }
+\author{Jeffrey Cousineau \and Maxime St-Pierre, Jonathan Fortin, Thierry Pouplier, Alexandre Doyle, Jimmy Poirier, Cassandra Lépine, Philippe La Madelaine, Samuel Otis, Redouane Laref, Louis-Charle Labarre, Francis Grégoire, Simon Landry, Aloïs Goudard-Bellissens, Lucas Maurice, Léonore Jean-François, Nicolas Nadeau, Daniel Sami, Alexandre Salconi-Denis, Quentin Bourret, Laureline Estivalet, Julien Côté }
 \institute{École de Technologie Supérieure \\ 1100 rue Notre-Dame Ouest, Montreal, QC, H3C 1K3 \\
 \texttt{http://walkingmachine.ca}}
 \maketitle
@@ -64,8 +65,21 @@ The next section will discuss the hardware design of SARA. Perceptions and decis
 % We are Buy n Large. We have no competitors so no background is required.
 \lipsum[1-3]
 
-\section{BnL Trash Seeker Algorithm (Main research)}
-\lipsum[4-14]
+\section{Software Architecture}
+\tab Our software architecture is based on ROS (Robot Operating System). This allows us to build complex software in a short amount of time. 
+
+\section{Perception}
+
+\tab This year one of our new feature for our perception is an object classifier based on TensorFlow. This new approach is faster than our old method but requires some careful preparation. Our classifier is capable of classifying almost all the object found in an ordinary household. \\
+
+We upgrade our robot with a second camera, a kinect v2 from Microsoft. This camera enables better point clouds and also better skeleton mesh to detect people. \\
+
+\section{Artificial Intelligence}
+\tab From last year experience, we made some change to the human machine interface. \\
+
+The first change was to implement a state machine to reduce the number of launch file. This change permits us to reduce the time to setup the robot between task. 
+
+
 
 \section{Experiments and results}
 \lipsum[15-20]
