@@ -2,7 +2,10 @@
 
 \bibitem{lu4r}
 {LU4R Project} - adaptive spoken {Language} {Understanding} {For} {Robots}.
-\newblock \url{http://sag.art.uniroma2.it/lu4r.html}.
+
+\bibitem{ork}
+Object {Recognition} {Kitchen} — object\_recognition\_core.
+\newblock \url{http://wg-perception.github.io/object_recognition_core/}.
 
 \bibitem{pocketsphinx}
 pocketsphinx - {ROS} {Wiki}.
