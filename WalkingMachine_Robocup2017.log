@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.12.31)  8 MAR 2017 20:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.12.31)  12 MAR 2017 01:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**TDPTemplate.tex
-(./TDPTemplate.tex
+**WalkingMachine_Robocup2017.tex
+(./WalkingMachine_Robocup2017.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 4 languages loaded.
 (./llncs.cls
@@ -507,62 +507,34 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+(./WalkingMachine_Robocup2017.aux (./RobotDescription.aux))
+\openout1 = `WalkingMachine_Robocup2017.aux'.
 
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 57.
-\captionmargin=\dimen140
-\captionmargin@=\dimen141
-\captionwidth=\dimen142
-\caption@tempdima=\dimen143
-\caption@indent=\dimen144
-\caption@parindent=\dimen145
-\caption@hangindent=\dimen146
-Package caption Info: Unknown document class (or package),
-(caption)             standard defaults will be used.
-)
-
-Package caption Warning: Unsupported document class (or package) detected,
-(caption)                usage of the caption package is not recommended.
-See the caption package documentation for explanation.
-
-Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
-p \sbox \@tempboxa {{\bfseries #1.} #2}\ifdim \wd \@tempboxa >\hsize {\bfseries
- #1.} #2\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@tempbox
-a \hfil }\fi \vskip \belowcaptionskip .
-\c@ContinuedFloat=\count133
-Package caption Info: float package is loaded.
-Package caption Info: wrapfig package is loaded.
-) (./TDPTemplate.aux)
-\openout1 = `TDPTemplate.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count134
-\scratchdimen=\dimen147
+\scratchcounter=\count133
+\scratchdimen=\dimen140
 \scratchbox=\box59
-\nofMPsegments=\count135
-\nofMParguments=\count136
+\nofMPsegments=\count134
+\nofMParguments=\count135
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count137
-\MPscratchDim=\dimen148
-\MPnumerator=\count138
-\makeMPintoPDFobject=\count139
+\MPscratchCnt=\count136
+\MPscratchDim=\dimen141
+\MPnumerator=\count137
+\makeMPintoPDFobject=\count138
 \everyMPtoPDFconversion=\toks33
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -612,60 +584,50 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: Incompatible package detected (regarding \@caption).
-(caption)             \@caption = \long macro:#1[#2]#3->\par \addcontentsline {
-\csname ext@#1\endcsname }{#1}{\protect \numberline {\csname the#1\endcsname }{
-\ignorespaces #2}}\begingroup \@parboxrestore \@makecaption {\csname fnum@#1\en
-dcsname }{\ignorespaces #3}\par \endgroup .
+LaTeX Font Info:    Try loading font information for U+msa on input line 40.
 
-
-Package caption Warning: \caption will not be redefined since it's already
-(caption)                redefined by a document class or package which is
-(caption)                unknown to the caption package.
-See the caption package documentation for explanation.
-
-Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 42.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 42.
+LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Names of authors too long for running head. Please supply
-a shorter form with \authorrunning prior to \maketitle
-
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+<images/robotiq.png, id=11, 1284.8pt x 722.7pt>
+File: images/robotiq.png Graphic file (type png)
+ <use images/robotiq.png>
+Package pdftex.def Info: images/robotiq.png used on input line 65.
+(pdftex.def)             Requested size: 150.0pt x 84.3714pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+[2 <./images/robotiq.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
@@ -674,74 +636,117 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
-[2]
+
 Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
 
+<images/map.jpg, id=18, 818.05624pt x 442.65375pt>
+File: images/map.jpg Graphic file (type jpg)
+ <use images/map.jpg>
+Package pdftex.def Info: images/map.jpg used on input line 86.
+(pdftex.def)             Requested size: 150.0pt x 81.16019pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
-
- []
-
-[3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 96--98
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
-[5] (./RobotDescription.tex
+<images/objectreco.png, id=22, 766.865pt x 532.99126pt>
+File: images/objectreco.png Graphic file (type png)
+
+<use images/objectreco.png>
+Package pdftex.def Info: images/objectreco.png used on input line 103.
+(pdftex.def)             Requested size: 150.0pt x 104.25412pt.
+ [4 <./images/map.jpg>]
+<images/arm_sim.png, id=26, 537.00626pt x 524.96124pt>
+File: images/arm_sim.png Graphic file (type png)
+
+<use images/arm_sim.png>
+Package pdftex.def Info: images/arm_sim.png used on input line 118.
+(pdftex.def)             Requested size: 86.78088pt x 84.82857pt.
+ [5 <./images/objectreco.png>]
+Underfull \hbox (badness 4518) in paragraph at lines 124--125
+|   \OT1/cmr/m/n/10 SARA has voice recog-ni-tion pack-age which
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
+
+ []
+
+[6 <./images/arm_sim.png>]
+\openout2 = `RobotDescription.aux'.
+
+ (./RobotDescription.tex
 Overfull \hbox (0.92906pt too wide) in paragraph at lines 9--36
 [][] 
  []
 
-<images/sara_full.png, id=24, 548.0475pt x 1468.48625pt>
+<images/sara_full.png, id=34, 548.0475pt x 1468.48625pt>
 File: images/sara_full.png Graphic file (type png)
 
 <use images/sara_full.png>
 Package pdftex.def Info: images/sara_full.png used on input line 40.
 (pdftex.def)             Requested size: 69.42365pt x 186.00272pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 41--41
+[]\OT1/cmr/bx/n/10 Fig.5. \OT1/cmr/m/n/10 Robot
+ []
+
+
 Overfull \hbox (0.83846pt too wide) in paragraph at lines 49--50
 []\OT1/cmr/m/n/10 Navigation, lo-cal-iza-tion and map-ping: RTAB-Map, Gmap-
  []
 
-) [6 <./images/sara_full.png>] (./TDPTemplate.bbl) [7] (./TDPTemplate.aux) ) 
+) [7
+
+ <./images/sara_full.png>]
+Overfull \hbox (1.04381pt too wide) in paragraph at lines 136--137
+\OT1/cmr/m/n/10 Jeffrey Cousineau, Maxime St-Pierre, Jonathan Fortin, Thierry P
+ou-plier, Alexan-
+ []
+
+
+Overfull \hbox (4.41872pt too wide) in paragraph at lines 136--137
+\OT1/cmr/m/n/10 Alo^^?^^Ps Goudard-Bellissens, Lu-cas Mau-rice, L^^Seonore Jean
+-Fran^^Xcois, Nico-las Nadeau,
+ []
+
+(./WalkingMachine_Robocup2017.bbl) [8
+
+] (./WalkingMachine_Robocup2017.aux
+(./RobotDescription.aux)) ) 
 Here is how much of TeX's memory you used:
- 4954 strings out of 494985
- 67421 string characters out of 6180355
- 231222 words of memory out of 5000000
- 8075 multiletter control sequences out of 15000+600000
+ 3961 strings out of 494985
+ 49419 string characters out of 6180355
+ 212343 words of memory out of 5000000
+ 7079 multiletter control sequences out of 15000+600000
  10779 words of font info for 42 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 41i,18n,38p,778b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
-</u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmtt9.pfb>
-Output written on TDPTemplate.pdf (7 pages, 860256 bytes).
+ 41i,18n,35p,1275b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on WalkingMachine_Robocup2017.pdf (8 pages, 2400283 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

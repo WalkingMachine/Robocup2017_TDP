@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{lu4r}
+{LU4R Project} - adaptive spoken {Language} {Understanding} {For} {Robots}.
+\newblock \url{http://sag.art.uniroma2.it/lu4r.html}.
+
+\bibitem{pocketsphinx}
+pocketsphinx - {ROS} {Wiki}.
+\newblock \url{http://wiki.ros.org/pocketsphinx}.
+
+\bibitem{poseefk}
+robot\_pose\_ekf - {ROS} {Wiki}.
+\newblock \url{http://wiki.ros.org/robot_pose_ekf}.
+
+\bibitem{svox}
+Svox package : {Ubuntu}.
+\newblock \url{https://launchpad.net/ubuntu/precise/+source/svox/}.
+
+\bibitem{kinematic}
+J.~Denavit and R.~S. Hartenberg.
+\newblock {A kinematic notation for lower-pair mechanisms based on matrices.}
+\newblock {\em Trans. of the ASME. Journal of Applied Mechanics}, 22:215--221,
+  1955.
+
+\bibitem{slam}
+F.F. Sales.
+\newblock {\em SLAM and Localization of People with a Mobile Robot using a
+  RGB-D Sensor:}.
+\newblock Master of Science Dissertation. University of Coimbra, 2014.
+
+\bibitem{springer}
+Bruno Siciliano and Oussama Khatib, editors.
+\newblock {\em Springer Handbook of Robotics}.
+\newblock Springer, 2016.
+
+\bibitem{coordinate}
+Stephen~J. Wright.
+\newblock Coordinate descent algorithms.
+\newblock {\em Math. Program.}, 151(1):3--34, June 2015.
+
+\end{thebibliography}

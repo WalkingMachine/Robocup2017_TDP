@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: WalkingMachine_Robocup2017.aux
+A level-1 auxiliary file: RobotDescription.aux
+The style file: plain.bst
+Database file #1: references.bib
+Warning--to sort, need author or key in poseefk
+Warning--to sort, need author or key in svox
+Warning--to sort, need author or key in lu4r
+Warning--to sort, need author or key in pocketsphinx
+You've used 8 entries,
+            2118 wiz_defined-function locations,
+            537 strings with 4940 characters,
+and the built_in function-call counts, 1739 in all, are:
+= -- 169
+> -- 45
+< -- 0
++ -- 20
+- -- 12
+* -- 88
+:= -- 264
+add.period$ -- 21
+call.type$ -- 8
+change.case$ -- 28
+chr.to.int$ -- 0
+cite$ -- 12
+duplicate$ -- 75
+empty$ -- 188
+format.name$ -- 12
+if$ -- 387
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 5
+newline$ -- 39
+num.names$ -- 9
+pop$ -- 51
+preamble$ -- 1
+purify$ -- 22
+quote$ -- 0
+skip$ -- 60
+stack$ -- 0
+substring$ -- 81
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 4
+while$ -- 12
+width$ -- 9
+write$ -- 73
+(There were 4 warnings)
