@@ -80,9 +80,6 @@ This specific arm has currently five DOF (Degrees Of Freedom) but will soon have
 
 \section{Environment perception}
 
-%TODO add wonderland
-\subsection{Knowledge}
-
 \subsection{Navigation}
 \tab Most of the software development is toward the movements of the robot in its environment. For this, SARA can build a 2D map using a laser scanner. Using the simultaneous localization and mapping (SLAM) method she can build a 2D map while exploring it and simultaneously know where she is in using the odometry on her wheels, the inertial measurement unit (IMU) was also implement this year for a better localization. We also implemented, base on the robot\_pose\_efk ROS package \cite{poseefk}, a kalman filter to get a better pose estimation of our robot. \\
 \begin{figure}
@@ -91,6 +88,10 @@ This specific arm has currently five DOF (Degrees Of Freedom) but will soon have
   \caption{Mapping}
 \end{figure}\\
 Using the sensor, the robot builds a 2D map, which can be saved and then sent to the part of the software responsible for moving the base of the robot. The 2D map updates itself often to be able to react to fast-changing environment, such as an object thrown in front of the robot.
+
+
+\subsection{Knowledge}
+\tab This year we develop our own knowledge representation system. We called this system Wonderland\footnote{https://github.com/WalkingMachine/wonderland/}. This system allowed us to add way point, objects and person to a representation of the world. The hold system is based on Django with a REST API so it is middle-ware agnostic.
 
 
 % TODO Update this section with latest progress with darknet and openpose
@@ -108,7 +109,6 @@ For objects recognition, we decided to use object recognition kitchen (ORK) \cit
   \caption{Object recognition}
 \end{figure}
 
-\newpage
 %TODO Add FlexBe
 \section{Decision making}
 \tab Our high-level decision making is made by a hierarchical finite state machine (HFSM). At the highest level, the HFSM wait for an order. Once an order is received, it switches to the corresponding state. It then enters a lower FSM that describes in details all the steps to execute the task. 
@@ -124,7 +124,7 @@ For objects recognition, we decided to use object recognition kitchen (ORK) \cit
 \caption{Arm simulation}
 \end{wrapfigure}
 
-\newpage
+
 \subsection{Human-robot interaction}
 \tab SARA has voice recognition package which branches directly in the decision making part. She has multiple pre-made voice command that she can understand and each of this command will need to be enabled beforehand by saying her name. Each time SARA hears her name, she will switch in command waiting mode. If the said command is available in her vocal commands tree, she will demand confirmation of it and then proceed on. At any time during an action, she can give details on what she is doing and can be stopped by the safe word STOP. This command overrides every other and acts as a software stop. She uses a speech synthesis package that we embedded in ROS known as SVOX pico2wave \cite{svox}, to express herself according to her state.\\
 
