@@ -37,6 +37,11 @@
 \newif\ifdraft
 \draftfalse
 
+
+\ifdraft
+\setlength{\belowcaptionskip}{-5pt}
+\fi
+
 \title{Walking Machine @Home \newline \: 2018 Team Description Paper}
 
 \author{Jeffrey Cousineau and Philippe La Madeleine}
@@ -63,9 +68,7 @@ SARA, our creation, was designed for polyvalent human-robot interaction as well 
 \section{Electrical and mechanical design of SARA}
 \subsection{Electrical}
 
-
 \subsection{Mechanical}
-
 
 \section{Software}
 
@@ -77,7 +80,7 @@ But we do not simply use FlexBe as is. We still need write our own blocks for it
 \subsection{Natural language processing}
 \tab To analyse the detected speech, we rely on a software develop by the  \href{http://sag.art.uniroma2.it/}{Semantic analytic group from the University of Roma} and the \href{http://labrococo.dis.uniroma1.it/}{Laboratory of Cognitive Cooperating Robots} at Sapienza University of Rome. This speech analyzer, named \href{http://sag.art.uniroma2.it/lu4r.html}{LU4R} for “Language Understanding For Robots”, is composed of a server developed in Java which take as an input the detected sentence and the semantic environment surrounding the robot.\\
 
-This server communicate through a REST service which give him the possibility to be compliant with all kind of platform. All you have to do is to launch the server locally which is compiled through a .jar file. Again, this give the opportunity to use this software on every platform, whether you’re on Windows, Linux or Mac. \\
+This server communicate through a REST service which give it the possibility to be compliant with all kind of platform. All you have to do is to launch the server locally which is compiled through a .jar file. Again, this give the opportunity to use this software on every platform, whether you’re on Windows, Linux or Mac. \\
 
 This software gives you the possibility to get different output representation. We choose the \href{https://github.com/amrisi/amr-guidelines/blob/master/amr.md}{amr representation} since it was the easiest one to understand and to implement.\\
 
@@ -101,17 +104,26 @@ What is also interesting about LU4R, it’s that it will use the semantic mappin
 
 YOLO is a real-time object detection. It does not only detect various object but it also predict the bounding boxes of the detected object. It use a single neural network which is applied to the image. Multiple regions are then created and are used to predict the bounding boxes. Each bounding boxes also contain are predicted probability which are used to filter the predicted objects. The advantage of this system is that it can detect multiple objects in a real-time scenario.\\
  
+\begin{figure}
+  \centering
+  \includegraphics[width=250pt]{images/frame_to_box.png}
+  \caption{2D bounding box to 3D grasping pose, current technique}
+\end{figure} 
+ 
 We use the ROS package to make our job easier since this gave us the possibility to directly get the recognized objects output into a ROS topic. We can also get the bounding box for each detected object. First step we had to do was to transform those 2D bounding boxes in 3D to get a specific pose according to our robot. \\
-
-[Image expliquant 2d bounding boxe -> 3D pose]\\
 
 For the moment, we created the package \href{https://github.com/WalkingMachine/wm_frame_to_box}{wm\_frame\_to\_box} to approximate the object pose by the depth point of the center of the bounding box. Even though it can have flaws, this technique has also proven to be largely sufficient for most of our applications and most importantly, it uses way less processing power than the full 3D pattern matching we used before. This allow us to do real time object positioning, a capability we are proud of.\\
 
-[Image expliquant la prochaine technique, bounding box -> pointcloud seg -> haf grasp] \\
-
 Afterward, to get better results and a better pose, we plan to substract the point cloud according to the bounding boxes. We will then use it with the pointcloud segmentation from the \href{http://pointclouds.org}{PCL library} to extract the specific object and send it to a grasp identification package like \href{http://http://wiki.ros.org/haf_grasping}{haf\_grasping}. This technique, compare to what we are actually using would give us the possibility to grab a much wider variety of object.\\
 
-For the moment, we are using the COCO model but, we are looking forward to train our own dataset, just like we would do in competition. As an undergrad team, this is new for us but we have all the tools we need to overcome this. \\
+\begin{figure}
+  \centering
+  \includegraphics[width=300pt]{images/frame_to_box2.png}
+  \caption{2D bounding box to 3D grasping pose, future technique}
+\end{figure}
+
+
+For the moment, we are using the YOLO model but, we are looking forward to train our own dataset, just like we would do in competition. As an undergrad team, this is new for us but we have all the tools we need to overcome this. \\
 
 \ifdraft
 \begin{figure}
@@ -121,12 +133,21 @@ For the moment, we are using the COCO model but, we are looking forward to train
 \end{figure}
 \fi
 
-\newpage
 \subsection{Navigation}
-\tab  
+\tab In addition of last year navigation stack, this year we are using the pointcloud-to-lasercan package as a lighter solution for 3D navigation. This ensure a safe navigation around object like table or chair, since only the legs are detected by the lidar laser. Another great thing with this implementation is the fact that we can set the maximum height for collision avoidance. That way, if there’s an obstacle at head level, our robot will avoid it the same way it would avoir an object on the floor.
+
+[image pointcloud\_to\_laserscan avec exemple d’une table]
+
+We still use octomap as part of the collision avoidance system for the moveit arm planning to ensure there’s no collision while moving to an object on top of a table.\\
 
 \subsection{Environmental reasoning}
-\tab In addition of last year navigation stack, this year we are using the pointcloud-to-lasercan package as a lighter solution for 3D navigation. We still use octomap as part of the collision avoidance system for the moveit arm planning.\\
+\tab As novelty this year, we implemented our own solution for an evironment representation in a way that we think is simple and easy for everyone. 
+
+Our package named \href{http://github.com/walkingmachine/wonderland}{wonderland} is an agnostic system in the same way than LU4R. It’s composed of a server that received HTTP query based on a custom API. 
+
+The first thing that is needed when you start using this platform is to populate the database. This can be done manually if you already know the object position, but this can be done by your robot trough POST query. It’s also possible to specify some room with a specific position relate to it. Once this is done, you can call our API and for example, juste by doing a GET request on the url http://wonderland:8000/object, this will return you the list of every object the database contains. It’s also possible possible to filter the request by giving a known color link to the object or a room as a parameter. 
+
+Since the database is host as a server, you can access to it from everywhere. You could decide to export it to another computer, run in cloud or just put it on the robot system itself. It also give the possibility to have a dynamic knowledge, meaning that the robot can update it’s knowledge of his environment in real-time. 
 
 
 
