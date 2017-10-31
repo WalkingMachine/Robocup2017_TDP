@@ -29,10 +29,11 @@
 \usepackage{tabto}
 \usepackage{lipsum}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage{hyperref}
 
 \begin{document}
 
-\title{Walking Machine @Home \newline \: 2017 Team Description Paper}
+\title{Walking Machine @Home \newline \: 2018 Team Description Paper}
 
 \author{Jeffrey Cousineau et al.}
 \institute{École de Technologie Supérieure \\ 1100 rue Notre-Dame Ouest, Montreal, QC, Canada H3C 1K3 \\
@@ -44,14 +45,14 @@
 
 \begin{abstract}
 
-This paper gives details about the RoboCup@Home league team Walking Machine, from ETS University in Montreal, Canada for the next competition in Nagoya, Japan, in July 2017. The robot from Walking Machine, named SARA for "Système d’Assistance Robotique Autonome" (in English, Automated Robotic Assistance System), is a robot entirely built by the scientific club from ETS, mainly composed of undergraduates students. The robot is used for social interaction with humans, navigation and object manipulation. This document shows the electrical, mechanical and software properties and functionalities of SARA. It specifically emphasizes on human following, object and people recognition as well as navigation, manipulation and human-robot interaction.
+This paper gives details about the RoboCup@Home league team Walking Machine, from ETS University in Montreal, Canada for the next competition in his hometown, Montreal, in July 2018. The robot from Walking Machine, named SARA for "Système d’Assistance Robotique Autonome" (in English, Automated Robotic Assistance System), is a robot entirely built by the scientific club from ETS, mainly composed of undergraduates students. The robot is used for social interaction with humans, navigation and object manipulation. This document shows the electrical, mechanical and software properties and functionalities of SARA. It specifically emphasizes on human following, object and people recognition as well as navigation, manipulation and human-robot interaction.
 
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
-\tab Walking Machine’s team is a young team from Montreal, Quebec, in Canada, composed of engineering student in the field of mechanical, electrical and software engineering. We have been working on our robot for the last year in prevision of the Robocup at Home competition. As this is our second participation, we learned a lot on our first attempt last year and have made various modifications to get better results. In the past, the team went in many competitions like the Eurobot, but made the leap for the RoboCup@Home competition to get a bigger challenge. \\
+\tab Walking Machine’s team is a young team from Montreal, Quebec, in Canada, composed of engineering student in the field of mechanical, electrical and software engineering. We have been working on our robot for the last year in prevision of the Robocup at Home competition. As this would be our third participation, we learned a lot on our second attempt last year and have made various modifications to get better results, mostly on the software side. In the past, the team went in many competitions like the Eurobot, but made the leap for the RoboCup@Home competition to get a bigger challenge. \\
 
 SARA, our creation, was designed for polyvalent human-robot interaction as well as efficient navigation and object manipulation. Our robot is mounted on four mecanum wheels powered by Roboteq drives, has one arm mimicking a normal human arm, and sensors for communication and navigation. Our team has developed knowledge in object and people detection/recognition, as well as navigation using a laser scanner, odometry on the wheels and a Asus Xtion camera. All of these parts are interfaced through ROS (Robot Operating System). \\
 
@@ -77,6 +78,9 @@ Our main base has been rethink and redesign to be smaller. This decision leads t
 An innovation is also made on this robot with the titanium printed arm. Considering the high power of the arm actuators, a decision has been taken to use a high-performance factor metal to lift the biggest load as possible without any break. Moreover, this metal should be printed to make the fabrication easier. This arm was entirely designed with finite elements method to optimize the resistance and ensure required stiffness, as it is possible to see in figure 2. \\
 
 This specific arm has currently five DOF (Degrees Of Freedom) but will soon have 7 with the add of two other links. This will give us more liberty and help us get to harder to reach objects. The motors used are the same as the JACO arm model from Kinova and use harmonic drive, which gives us an extreme precision. The arm, once fixed to SARA’s frame, can lift up to 2kgs at full extension. Each motor is linked in series and receives its power from the one before. The arm is controlled by a JACO arm base, which distributes commands to the motors to move them. \\
+
+\section{Software}
+\subsection*{Test}
 
 \section{Environment perception}
 \subsection{Navigation}
@@ -133,7 +137,7 @@ Giving that our robot needs to achieved a higher level of autonomy, we had to in
 	
 
 \section*{Team members}
-Jeffrey Cousineau, Maxime St-Pierre, Jonathan Fortin, Thierry Pouplier, Alexandre Doyle, Jimmy Poirier, Cassandra Lépine, Philippe La Madelaine, Samuel Otis, Redouane Laref, Louis-Charle Labarre, Francis Grégoire, Simon Landry, Aloïs Goudard-Bellissens, Lucas Maurice, Léonore Jean-François, Nicolas Nadeau, Danliel Sami, Alexandre Salconi-Denis, Quentin Bourret, Laureline Estivalet, Julien Côté 
+Jeffrey Cousineau, Philippe La Madeleine, Maxime St-Pierre, Jimmy Poirier, Philippe La Madelaine, Samuel Otis, Redouane Laref, Louis-Charle Labarre, Lucas Maurice, Léonore Jean-François, Nicolas Nadeau 
 
 \nocite{*}
 \bibliographystyle{plain}
