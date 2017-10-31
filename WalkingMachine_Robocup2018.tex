@@ -33,9 +33,13 @@
 
 \begin{document}
 
+
+\newif\ifdraft
+\draftfalse
+
 \title{Walking Machine @Home \newline \: 2018 Team Description Paper}
 
-\author{Jeffrey Cousineau et al.}
+\author{Jeffrey Cousineau and Philippe La Madeleine}
 \institute{École de Technologie Supérieure \\ 1100 rue Notre-Dame Ouest, Montreal, QC, Canada H3C 1K3 \\
 \texttt{http://walkingmachine.ca,} \texttt{walking@ens.etsmtl.ca,} \texttt{https://github.com/WalkingMachine}}
 \maketitle
@@ -58,80 +62,76 @@ SARA, our creation, was designed for polyvalent human-robot interaction as well 
 
 \section{Electrical and mechanical design of SARA}
 \subsection{Electrical}
-\tab The electrical design was mostly done using pre-built electrical assets. For example, we use Roboteq drives to power Maxon motors. The robot can run at more than 1 m/s in automatic navigation mode. The feedback of the motor speed is done with precise optical encoders and the drive control the motor speed with a PID algorithm. \\
 
-SARA uses lithium-ion power cells with built-in voltage balancing. Each cell has a nominal voltage of 4.2 volts and, once linked together, offers a supply of 25.2 volts to the robot systems. This year, we conceived a new battery which is smaller than last year but gives us the possibility to be swap, so we get two times the capacity. The health of the battery system is monitored with a custom BMS (Battery Monitoring System) developed by our team. An emergency stop is linked directly to the battery to cut any power if something should go bad. Moreover, a motion stop is being developed to stop the robot during any dangerous action. A custom power distribution board was made by our team to provide enough power to the lidar, the gripper, the arm and the various embedded computer. \\
-\begin{figure}
-  \centering
-  \includegraphics[width=150pt]{images/robotiq.png}
-  \caption{Robotiq gripper}
-\end{figure}\\
-The robot uses sensors like a laser sensor for 2D mapping and leg tracking as well as Xtion camera for body tracking. The camera also provides depth perception to recognize objects and faces. We are also currently implementing the kinect 2 for future uses. The face of the robot was developed by the team and use Neopixel RGB LEDs to provide a range of possible emotions and is also linked to voice, so the LEDs will modulate the opening of the mouth according to the voice of SARA when she's talking. 
 
 \subsection{Mechanical}
-\tab The general design of the robot is made of a ground base, a trunk, a robotic arm and the head which include a motion sensor, a microphone and a DEL face matrix. The basic frame is assembled with aluminum sheet metal. The shells are made from prototyping plastics, and also with acrylic sheets. We made a significant weight loss this year since we change the main desktop pc for a laptop and the battery reduction also takes away some of this weight.  \\
 
-One of the principal interests of the robot is its omnidirectional wheels. The 45 angle of each roller on the wheel allows frontal displacements as well as lateral movements. The only things we control are the angular speed and the rotational direction of all the DC motors connected to each wheel. \\
-
-Our main base has been rethink and redesign to be smaller. This decision leads to a better navigation because we experienced some difficulties to go through doors with our old base due to his dimensions being too large. We took advantage of this redesign to build a frame with easy changing compartments for the electric system and the computer. \\
-
-An innovation is also made on this robot with the titanium printed arm. Considering the high power of the arm actuators, a decision has been taken to use a high-performance factor metal to lift the biggest load as possible without any break. Moreover, this metal should be printed to make the fabrication easier. This arm was entirely designed with finite elements method to optimize the resistance and ensure required stiffness, as it is possible to see in figure 2. \\
-
-This specific arm has currently five DOF (Degrees Of Freedom) but will soon have 7 with the add of two other links. This will give us more liberty and help us get to harder to reach objects. The motors used are the same as the JACO arm model from Kinova and use harmonic drive, which gives us an extreme precision. The arm, once fixed to SARA’s frame, can lift up to 2kgs at full extension. Each motor is linked in series and receives its power from the one before. The arm is controlled by a JACO arm base, which distributes commands to the motors to move them. \\
 
 \section{Software}
-\subsection*{Test}
 
-\section{Environment perception}
-\subsection{Navigation}
-\tab Most of the software development is toward the movements of the robot in its environment. For this, SARA can build a 2D map using a laser scanner. Using the simultaneous localization and mapping (SLAM) method she can build a 2D map while exploring it and simultaneously know where she is in using the odometry on her wheels, the inertial measurement unit (IMU) was also implement this year for a better localization. We also implemented, base on the robot\_pose\_efk ROS package \cite{poseefk}, a kalman filter to get a better pose estimation of our robot. \\
+\subsection{High-level task planning}
+\tab For our task planning, we use a state machine software developed by team Vigir, one of the participant of the Darpa Robotics Challenge. This software is named \href{http://philserver.bplaced.net/fbe/index.php}{FlexBe}, for Flexible Behavior, is a block based interface for making state machines.\\
+
+But we do not simply use FlexBe as is. We still need write our own blocks for it using its python API. To simplify our work, we started by splitting all of the Robocup@home scenarios into basic actions. We then identified all of these basic actions our platform could accomplish and we confined them in blocks named States, e.g. MoveArm, MoveHead etc. These blocks can then be assembled together to form a higher level of blocs we named Actions e.g. Pick, LookAt etc. Those Actions can then again be assembled into what we call ActionWrappers. The role of ActionWrapper is to allow interfacing our Actions with our natural language processing software(see natural language processing below). They receive the segmented text and translate it to computer understandable parameters using our Wonderland (see environment reasoning below) knowledge base and other sources of informations. This recursive structure allow us allow us to quickly develop our robot’s behaviours.
+
+\subsection{Natural language processing}
+\tab To analyse the detected speech, we rely on a software develop by the  \href{http://sag.art.uniroma2.it/}{Semantic analytic group from the University of Roma} and the \href{http://labrococo.dis.uniroma1.it/}{Laboratory of Cognitive Cooperating Robots} at Sapienza University of Rome. This speech analyzer, named \href{http://sag.art.uniroma2.it/lu4r.html}{LU4R} for “Language Understanding For Robots”, is composed of a server developed in Java which take as an input the detected sentence and the semantic environment surrounding the robot.\\
+
+This server communicate through a REST service which give him the possibility to be compliant with all kind of platform. All you have to do is to launch the server locally which is compiled through a .jar file. Again, this give the opportunity to use this software on every platform, whether you’re on Windows, Linux or Mac. \\
+
+This software gives you the possibility to get different output representation. We choose the \href{https://github.com/amrisi/amr-guidelines/blob/master/amr.md}{amr representation} since it was the easiest one to understand and to implement.\\
+
+We decided to build our own ROS wrapper, \href{https://github.com/WalkingMachine/lu4r_ros}{lu4r\_ros}  to better interface it with our task planning approach. We first translate the response given by LU4R into simple format we call ActionForms. The ActionForms contains an action followed by all of its possible parameters as identified in the \href{https://framenet2.icsi.berkeley.edu/fnReports/data/luIndex.xml}{FrameNet Index of Lexical Units}
+The ActionWrappers are then fed into a FIFO based priority manager and finally send to our task planner.\\
+
+What is also interesting about LU4R, it’s that it will use the semantic mapping in it’s analysing process. All you have to do is to provide the correct pose for every object in the robot’s environment. You can also precise various synonym for every object to get a better understanding of inputted sentence.\\
+
+\ifdraft
 \begin{figure}
   \centering
   \includegraphics[width=150pt]{images/map.jpg}
   \caption{Mapping}
-\end{figure}\\
-Using the sensor, the robot builds a 2D map, which can be saved and then sent to the part of the software responsible for moving the base of the robot. The 2D map updates itself often to be able to react to fast-changing environment, such as an object thrown in front of the robot.
+\end{figure}
+\fi
 
 
 
-\subsection{People and objects perception}
-\tab An RGB/IR Asus Xtion camera is used in parallel with the Hokuyo to build a 3D map of the environment, but at this point, we integrated only the 2D mapping and are using the Xtion camera for object and people recognition. Knowing the distances from the base of the robot to the camera, it is possible to use body tracking, which means the robot detects a human body and can analyze it to know where its head, shoulders, hands, legs and feet are. The robot will be able to interpret specific movements using this. \\
+\subsection{Object recognition}
+\tab As a beginning team, we are still exploring various solution around the object recognition problem. Our first plan was to use the object recognition kitchen package from Willow Garage. But after using it in competition, we realised that the performance and the easiness to use wasn’t what the approach we were looking for. As an alternative, we start using the YOLO (You Only Look Once) ros package (link). \\
 
-Face recognition is done through the Xtion. It is possible to add new people via specific services of the software. The face recognition differentiates people through banks of images of the faces and depths of the multiple points. Using statistical analysis, it goes through the bank of images when somebody is presented to the robot and assigns the most reliable face if a match is
-possible, else the new person is unknown. \\
+YOLO is a real-time object detection. It does not only detect various object but it also predict the bounding boxes of the detected object. It use a single neural network which is applied to the image. Multiple regions are then created and are used to predict the bounding boxes. Each bounding boxes also contain are predicted probability which are used to filter the predicted objects. The advantage of this system is that it can detect multiple objects in a real-time scenario.\\
+ 
+We use the ROS package to make our job easier since this gave us the possibility to directly get the recognized objects output into a ROS topic. We can also get the bounding box for each detected object. First step we had to do was to transform those 2D bounding boxes in 3D to get a specific pose according to our robot. \\
 
-For objects recognition, we decided to use object recognition kitchen (ORK) \cite{ork} package combine  to the Kinect V2, which give us a good quality pointcloud. As undergraduates students, we tough that using ORK would be a good alternative as we don't have the required experience to developed our own object recognition algorithm. This package gives us very powerful tools to detect 3D objects in an environment. \\
+[Image expliquant 2d bounding boxe -> 3D pose]\\
 
+For the moment, we created the package \href{https://github.com/WalkingMachine/wm_frame_to_box}{wm\_frame\_to\_box} to approximate the object pose by the depth point of the center of the bounding box. Even though it can have flaws, this technique has also proven to be largely sufficient for most of our applications and most importantly, it uses way less processing power than the full 3D pattern matching we used before. This allow us to do real time object positioning, a capability we are proud of.\\
+
+[Image expliquant la prochaine technique, bounding box -> pointcloud seg -> haf grasp] \\
+
+Afterward, to get better results and a better pose, we plan to substract the point cloud according to the bounding boxes. We will then use it with the pointcloud segmentation from the \href{http://pointclouds.org}{PCL library} to extract the specific object and send it to a grasp identification package like \href{http://http://wiki.ros.org/haf_grasping}{haf\_grasping}. This technique, compare to what we are actually using would give us the possibility to grab a much wider variety of object.\\
+
+For the moment, we are using the COCO model but, we are looking forward to train our own dataset, just like we would do in competition. As an undergrad team, this is new for us but we have all the tools we need to overcome this. \\
+
+\ifdraft
 \begin{figure}
   \centering
   \includegraphics[width=150pt]{images/objectreco.png}
   \caption{Object recognition}
 \end{figure}
+\fi
 
 \newpage
-\section{Decision making}
-\tab Our high-level decision making is made by a hierarchical finite state machine (HFSM). At the highest level, the HFSM wait for an order. Once an order is received, it switches to the corresponding state. It then enters a lower FSM that describes in details all the steps to execute the task. 
-
 \subsection{Navigation}
-\tab Autonomous navigation uses the Navigation package from ROS. This package is composed of many algorithms that allow a robot to localize itself in a map, plan a trajectory to reach a given target position and compute velocity command. A planar laser scanner and velocity readings are used to build the map. A particle filter tracks the position of the robot as it moves. Velocity commands are computed by the main algorithm and are then sent to the wheels. 
+\tab  
 
-\subsection{Object manipulation}
-\tab First of all, a model of the manipulator was created by using the Denavit-Hartenberg \cite{kinematic} parameters. These parameters allow to compute the transform matrix between different reference frames. Using sensor stream from the stereoscopic camera, the robot is able to locate objects and register their position in its coordinate frame. The object pose becomes the manipulator's end effector's target pose. Inverse kinematics is computed using the Cyclic Coordinate Descent (CCD) method \cite{coordinate}. Starting at the most distal joint and for each joint, this iterative method computes the movement required to minimize the alignment error between the joint pose to effector pose vector and the joint pose to target pose vector. Joint position adjustments are made until the end effector is within tolerance or the maximum number of iterations is reached. Considering only one joint at the time reduces the complexity of the problem while making the algorithm robust against singularities \cite{springer}. 
-\begin{wrapfigure}{R}{0.3\textwidth}
-\centering
-\includegraphics[width=0.25\textwidth]{images/arm_sim.png}
-\caption{Arm simulation}
-\end{wrapfigure}
+\subsection{Environmental reasoning}
+\tab In addition of last year navigation stack, this year we are using the pointcloud-to-lasercan package as a lighter solution for 3D navigation. We still use octomap as part of the collision avoidance system for the moveit arm planning.\\
 
-\newpage
-\subsection{Human-robot interaction}
-\tab SARA has voice recognition package which branches directly in the decision making part. She has multiple pre-made voice command that she can understand and each of this command will need to be enabled beforehand by saying her name. Each time SARA hears her name, she will switch in command waiting mode. If the said command is available in her vocal commands tree, she will demand confirmation of it and then proceed on. At any time during an action, she can give details on what she is doing and can be stopped by the safe word STOP. This command overrides every other and acts as a software stop. She uses a speech synthesis package that we embedded in ROS known as SVOX pico2wave \cite{svox}, to express herself according to her state.\\
-
-Giving that our robot needs to achieved a higher level of autonomy, we had to integrate some language syntactic analysis, which we call semantic analysing. Since we can't have only pre-made voice command, we decided to use LU4R \cite{lu4r} made by University of Rome. This gives us the possibility to extract main topics in a sentence and then, our robot can act according to these topics. For this to work, we also have to give as a parameter a description of our semantic map. This means, using KnowRob, we analyse the whole map and extract the localisation of every object in a specific room. Furthermore, we use this information to have a better understanding of our environment, which is complementary to the LU4R sentence analysis.
 
 
 \section{Conclusions and future work}
-\tab As you can see, since last year, we made large progress, starting with the improvement of our object detection module. Also, the implementation of a semantic representation of the environment is a big step for us since it helps our robot to have a better understanding of his surrounding. Finally, the various mechanicals modifications will help for a better navigation and a better management of our robot. So SARA is now a completely autonomous system able of interaction with the human as well as navigation in her environment. Using his multiple sensors, like laser sensor, depth camera, IMU and odometry our robot can analyse his environment, recognize people and objects and navigate through obstacles. It can then interact with objects and people using his voice recognition and voice synthesis abilities to keep track of his state. All of the requirements for the Robocup@home are met by SARA and it's a fast-evolving robot considering the team is really young and composed of undergraduates in various engineering programs. As future works, we will add a second arm to give us the possibility for two-hands manipulation. Also, we'll add a vertical translation to our body to give our robot a larger range for objects manipulation.
+\tab As you can see, since last year, we made large progress, starting with the improvement of our object detection module. Also, the implementation of a semantic representation of the environment is a big step for us since it helps our robot to have a better understanding of his surrounding. Finally, the various mechanicals modifications will help for a better navigation and a better management of our robot. So SARA is now a completely autonomous system able of interaction with the human as well as navigation in her environment. Using his multiple sensors, like laser sensor, depth camera, IMU and odometry our robot can analyse his environment, recognize people and objects and navigate through obstacles. It can then interact with objects and people using his voice recognition and voice synthesis abilities to keep track of his state. All of the requirements for the Robocup@home are met by SARA and it's a fast-evolving robot considering the team is really young and composed of undergraduates in various engineering programs. As future works, we will add a second arm to give us the possibility for two-hands manipulation. Also, we'll add a vertical translation to our body to give our robot a larger range for objects manipulation.\\
 
 \include{RobotDescription}
 	
