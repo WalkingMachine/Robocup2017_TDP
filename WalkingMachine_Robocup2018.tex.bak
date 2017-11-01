@@ -67,12 +67,8 @@ SARA, our creation, was designed for polyvalent human-robot interaction as well 
 
 \section{Electrical and mechanical design of SARA}
 \subsection{Electrical}
-[electrical schema] \\
-[picture of the electrical system organization] \\
 
 \subsection{Mechanical}
-[image comparing base width 2017 vs 2018] \\
-[image comparing Robotiq gripper 140 vs 85] \\
 
 \section{Software}
 
@@ -140,7 +136,7 @@ For the moment, we are using the YOLO model but, we are looking forward to train
 \subsection{Navigation}
 \tab In addition of last year navigation stack, this year we are using the pointcloud-to-lasercan package as a lighter solution for 3D navigation. This ensure a safe navigation around object like table or chair, since only the legs are detected by the lidar laser. Another great thing with this implementation is the fact that we can set the maximum height for collision avoidance. That way, if there’s an obstacle at head level, our robot will avoid it the same way it would avoir an object on the floor.
 
-[image pointcloud_to_laserscan avec exemple d’une table]
+[image pointcloud\_to\_laserscan avec exemple d’une table]
 
 We still use octomap as part of the collision avoidance system for the moveit arm planning to ensure there’s no collision while moving to an object on top of a table.\\
 

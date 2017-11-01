@@ -37,7 +37,7 @@ Specifications for robot SARA are as follows:
 \end{table}
 \begin{wrapfigure}[10]{r}{0.25\textwidth}
 	\centering
-	\includegraphics[width=0.20\textwidth]{images/sara_full.png}
+	\includegraphics[width=0.30\textwidth]{images/sara.png}
 	\caption{Robot SARA}
 \end{wrapfigure}
 \section*{Robot's Software Description}
