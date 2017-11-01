@@ -68,7 +68,19 @@ SARA, our creation, was designed for polyvalent human-robot interaction as well 
 \section{Electrical and mechanical design of SARA}
 \subsection{Electrical}
 
+\tab As an improvement this year on the electrical side of our robot, we put a lot of efforts in the organization of the electrical systems, we made it much clearer and safer. We put a lot of protection for every sub-system since it’s easier to just change a fuse than rebuilding a whole electronic circuit board.\\
+
+Another big change for us was also the new battery system. We went from a custom LiPo battery to a system using drill batteries. This change bring way more positive aspects than we tought. First of all, this change was mainly decide just before leaving for Japan this year. This gave ves us the opportunity to ship the robot without any batteries and to bring the batteries with ourself. \\
+
+Second impact is that this type of battery is way safer than what we had before. We are using the drill charging station, that way we don’t have to worry about overcharging our batteries. We have two batteries onboard, this way we have more than enough power. We also 3d printed the original connector so we can easily interchange the batteries with charged ones. Finally, because there’s two batteries onboard, the robot can still run on one while we change the other one.\\
+
+
 \subsection{Mechanical}
+Some mechanical improvement were also made this year. There’s mainly two things we improved on our robot, the arm and the base.
+
+First of all, last year, our arm was made of 5 degrees of freedom, which makes some path plan a little more complicated and sometimes, impossible. Because of that, we decide to add 2 degrees of freedom with 2 dynamixel servo motors. Since then, we have much better results with our inverse kinematic and this also extend our range to get objects that are further.
+
+Next thing we improve was the compactness of our robot base. On our first competition in Germany, we observe that our robot was too large, which caused some problem with our path planning around the doors. By relying on these observations, we decided to reduce the width which improved a lot the navigation capabilities. 
 
 \section{Software}
 

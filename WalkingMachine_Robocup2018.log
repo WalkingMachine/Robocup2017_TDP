@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.4)  1 NOV 2017 00:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.4)  1 NOV 2017 01:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -831,27 +831,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--76
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
@@ -861,67 +851,77 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--98
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-<images/frame_to_box.png, id=77, 794.97pt x 410.53375pt>
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
+
+ []
+
+<images/frame_to_box.png, id=84, 794.97pt x 410.53375pt>
 File: images/frame_to_box.png Graphic file (type png)
 
 <use images/frame_to_box.png>
-Package pdftex.def Info: images/frame_to_box.png used on input line 116.
+Package pdftex.def Info: images/frame_to_box.png used on input line 121.
 (pdftex.def)             Requested size: 250.0pt x 129.10582pt.
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
+[4 <./images/frame_to_box.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
-<images/frame_to_box2.png, id=88, 1731.46875pt x 526.96875pt>
+<images/frame_to_box2.png, id=93, 1731.46875pt x 526.96875pt>
 File: images/frame_to_box2.png Graphic file (type png)
 
 <use images/frame_to_box2.png>
-Package pdftex.def Info: images/frame_to_box2.png used on input line 128.
+Package pdftex.def Info: images/frame_to_box2.png used on input line 133.
 (pdftex.def)             Requested size: 300.0pt x 91.30424pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
 
-Overfull \hbox (0.12706pt too wide) in paragraph at lines 144--145
+Overfull \hbox (0.12706pt too wide) in paragraph at lines 149--150
 |   \OT1/cmr/m/n/10 In ad-di-tion of last year nav-i-ga-tion stack, this year w
 e are us-ing the pointcloud-
  []
 
 
-Underfull \vbox (badness 6775) has occurred while \output is active []
-
- [4 <./images/frame_to_box.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \vbox (badness 1337) has occurred while \output is active []
+
+ [5 <./images/frame_to_box2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-[5 <./images/frame_to_box2.png>] [6]
+[6]
 \openout2 = `RobotDescription.aux'.
 
  (./RobotDescription.tex
@@ -947,19 +947,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--41
 ) [7
 
  <./images/sara.png>] (./WalkingMachine_Robocup2018.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
  [8
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
 
 (./WalkingMachine_Robocup2018.aux (./RobotDescription.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
 Package rerunfilecheck Info: File `WalkingMachine_Robocup2018.out' has not chan
 ged.
 (rerunfilecheck)             Checksum: 7AF8553326D12E12B5EF9D081DB91F43;934.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 175.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
  ) 
 Here is how much of TeX's memory you used:
  7565 strings out of 494910
@@ -968,7 +968,7 @@ Here is how much of TeX's memory you used:
  10703 multiletter control sequences out of 15000+600000
  10779 words of font info for 42 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 41i,18n,35p,1279b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,18n,35p,1279b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -977,7 +977,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmtt9.pfb>
-Output written on WalkingMachine_Robocup2018.pdf (8 pages, 1600079 bytes).
+Output written on WalkingMachine_Robocup2018.pdf (8 pages, 1601035 bytes).
 PDF statistics:
  181 PDF objects out of 1000 (max. 8388607)
  158 compressed objects within 2 object streams
