@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.4)  1 NOV 2017 01:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.4)  1 NOV 2017 09:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -804,7 +804,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: bookmark level for unknown author defaults to 0.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
@@ -831,11 +831,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--76
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
@@ -855,12 +875,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
@@ -870,7 +890,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
-<images/frame_to_box.png, id=84, 794.97pt x 410.53375pt>
+<images/frame_to_box.png, id=83, 794.97pt x 410.53375pt>
 File: images/frame_to_box.png Graphic file (type png)
 
 <use images/frame_to_box.png>
@@ -881,12 +901,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-
+[4 <./images/frame_to_box.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
-[4 <./images/frame_to_box.png (PNG copy)>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
@@ -909,19 +929,41 @@ e are us-ing the pointcloud-
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
 
+[5 <./images/frame_to_box2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
-Underfull \vbox (badness 1337) has occurred while \output is active []
+ []
 
- [5 <./images/frame_to_box2.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-[6]
+[6] [7]
 \openout2 = `RobotDescription.aux'.
 
  (./RobotDescription.tex
@@ -929,7 +971,7 @@ Overfull \hbox (0.92906pt too wide) in paragraph at lines 9--36
 [][] 
  []
 
-<images/sara.png, id=104, 501.875pt x 1055.945pt>
+<images/sara.png, id=109, 501.875pt x 1055.945pt>
 File: images/sara.png Graphic file (type png)
  <use images/sara.png>
 Package pdftex.def Info: images/sara.png used on input line 40.
@@ -944,26 +986,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--41
 []\OT1/cmr/bx/n/10 Fig.3. []\OT1/cmr/m/n/10 Robot
  []
 
-) [7
+) [8
 
- <./images/sara.png>] (./WalkingMachine_Robocup2018.bbl)
+ <./images/sara.png>]
+Overfull \hbox (1.18266pt too wide) in paragraph at lines 173--174
+\OT1/cmr/m/n/10 Jeffrey Cousineau, Philippe La Madeleine, L^^Seonore Jean-Fran^
+^Xcois, Jimmy Poirier,
+ []
+
+(./WalkingMachine_Robocup2018.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
- [8
+ [9
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
-
-(./WalkingMachine_Robocup2018.aux (./RobotDescription.aux))
+ (./WalkingMachine_Robocup2018.aux
+(./RobotDescription.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
-Package rerunfilecheck Info: File `WalkingMachine_Robocup2018.out' has not chan
-ged.
-(rerunfilecheck)             Checksum: 7AF8553326D12E12B5EF9D081DB91F43;934.
+
+
+Package rerunfilecheck Warning: File `WalkingMachine_Robocup2018.out' has chang
+ed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `WalkingMachine_Robocup2018.out':
+(rerunfilecheck)             Before: 7AF8553326D12E12B5EF9D081DB91F43;934
+(rerunfilecheck)             After:  F473A498DC2FE8C43C0F93194D149D18;931.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
  ) 
 Here is how much of TeX's memory you used:
- 7565 strings out of 494910
- 103626 string characters out of 6179836
+ 7566 strings out of 494910
+ 103632 string characters out of 6179836
  301950 words of memory out of 5000000
  10703 multiletter control sequences out of 15000+600000
  10779 words of font info for 42 fonts, out of 8000000 for 9000
@@ -977,10 +1032,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmtt9.pfb>
-Output written on WalkingMachine_Robocup2018.pdf (8 pages, 1601035 bytes).
+Output written on WalkingMachine_Robocup2018.pdf (9 pages, 1601348 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
+ 185 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
  120 words of extra memory for PDF output out of 10000 (max. 10000000)
 

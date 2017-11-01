@@ -54,18 +54,18 @@
 
 \begin{abstract}
 
-This paper gives details about the RoboCup@Home league team Walking Machine, from ETS University in Montreal, Canada for the next competition in his hometown, Montreal, in July 2018. The robot from Walking Machine, named SARA for "Système d’Assistance Robotique Autonome" (in English, Automated Robotic Assistance System), is a robot entirely built by the scientific club from ETS, mainly composed of undergraduates students. The robot is used for social interaction with humans, navigation and object manipulation. This document shows the electrical, mechanical and software properties and functionalities of SARA. It specifically emphasizes on human following, object and people recognition as well as navigation, manipulation and human-robot interaction.
-
+This paper gives details about the RoboCup@Home league team Walking Machine, from ETS University in Montreal, Canada for the next competition in his hometown, Montreal, in July 2018. The robot from Walking Machine, named SARA for "Système d’Assistance Robotique Autonome" (in English, Automated Robotic Assistance System), is a robot entirely built by the scientific club from ETS, mainly composed of undergraduates students. The robot is used for social interaction with humans, navigation and object manipulation. This document shows the electrical, mechanical and software properties and functionalities of SARA.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
-\tab Walking Machine’s team is a young team from Montreal, Quebec, in Canada, composed of engineering student in the field of mechanical, electrical and software engineering. We have been working on our robot for the last year in prevision of the Robocup at Home competition. As this would be our third participation, we learned a lot on our second attempt last year and have made various modifications to get better results, mostly on the software side. In the past, the team went in many competitions like the Eurobot, but made the leap for the RoboCup@Home competition to get a bigger challenge. \\
+\tab Walking Machine’s team is a young team from Montreal, Quebec, in Canada, composed of engineering student in the field of mechanical, electrical and software engineering. We have been working really hard to improve our robot for the next year Robocup@Home competition. As this would be our third participation, we learned a lot on our second attempt last year and have made many improvements to get better results, mostly on the software side. In the past, the team went in many competitions like the Eurobot, but made the leap for the RoboCup@Home competition to get a bigger challenge and to get an opportunity to bring novelty in the scientific community around robotic. \\
 
+%TODO : Modify this paragraph
 SARA, our creation, was designed for polyvalent human-robot interaction as well as efficient navigation and object manipulation. Our robot is mounted on four mecanum wheels powered by Roboteq drives, has one arm mimicking a normal human arm, and sensors for communication and navigation. Our team has developed knowledge in object and people detection/recognition, as well as navigation using a laser scanner, odometry on the wheels and a Asus Xtion camera. All of these parts are interfaced through ROS (Robot Operating System). \\
 
-\section{Electrical and mechanical design of SARA}
+\section{Electrical and mechanical improvement}
 \subsection{Electrical}
 
 \tab As an improvement this year on the electrical side of our robot, we put a lot of efforts in the organization of the electrical systems, we made it much clearer and safer. We put a lot of protection for every sub-system since it’s easier to just change a fuse than rebuilding a whole electronic circuit board.\\
@@ -76,18 +76,18 @@ Second impact is that this type of battery is way safer than what we had before.
 
 
 \subsection{Mechanical}
-Some mechanical improvement were also made this year. There’s mainly two things we improved on our robot, the arm and the base.
+\tab Some mechanical improvement were also made this year. There’s mainly two things we improved on our robot, the arm and the base.\\
 
-First of all, last year, our arm was made of 5 degrees of freedom, which makes some path plan a little more complicated and sometimes, impossible. Because of that, we decide to add 2 degrees of freedom with 2 dynamixel servo motors. Since then, we have much better results with our inverse kinematic and this also extend our range to get objects that are further.
+First of all, last year, our arm was made of 5 degrees of freedom, which makes some path plan a little more complicated and sometimes, impossible. Because of that, we decide to add 2 degrees of freedom with 2 dynamixel servo motors. Since then, we have much better results with our inverse kinematic and this also extend our range to get objects that are further.\\
 
-Next thing we improve was the compactness of our robot base. On our first competition in Germany, we observe that our robot was too large, which caused some problem with our path planning around the doors. By relying on these observations, we decided to reduce the width which improved a lot the navigation capabilities. 
-
+Next thing we improve was the compactness of our robot base. On our first competition in Germany, we observe that our robot was too large, which caused some problem with our path planning around the doors. By relying on these observations, we decided to reduce the width which improved a lot the navigation capabilities. \\
+\newpage
 \section{Software}
 
 \subsection{High-level task planning}
 \tab For our task planning, we use a state machine software developed by team Vigir, one of the participant of the Darpa Robotics Challenge. This software is named \href{http://philserver.bplaced.net/fbe/index.php}{FlexBe}, for Flexible Behavior, is a block based interface for making state machines.\\
 
-But we do not simply use FlexBe as is. We still need write our own blocks for it using its python API. To simplify our work, we started by splitting all of the Robocup@home scenarios into basic actions. We then identified all of these basic actions our platform could accomplish and we confined them in blocks named States, e.g. MoveArm, MoveHead etc. These blocks can then be assembled together to form a higher level of blocs we named Actions e.g. Pick, LookAt etc. Those Actions can then again be assembled into what we call ActionWrappers. The role of ActionWrapper is to allow interfacing our Actions with our natural language processing software(see natural language processing below). They receive the segmented text and translate it to computer understandable parameters using our Wonderland (see environment reasoning below) knowledge base and other sources of informations. This recursive structure allow us allow us to quickly develop our robot’s behaviours.
+But we do not simply use FlexBe as is. We still need write our own blocks for it using its python API. To simplify our work, we started by splitting all of the Robocup@home scenarios into basic actions. We then identified all of these basic actions our platform could accomplish and we confined them in blocks named States, e.g. MoveArm, MoveHead etc. These blocks can then be assembled together to form a higher level of blocs we named Actions e.g. Pick, LookAt etc. Those Actions can then again be assembled into what we call ActionWrappers. The role of ActionWrapper is to allow interfacing our Actions with our natural language processing software(see natural language processing below). They receive the segmented text and translate it to computer understandable parameters using our Wonderland (see environment reasoning below) knowledge base and other sources of informations. This recursive structure allow us allow us to quickly develop our robot’s behaviours.\\
 
 \subsection{Natural language processing}
 \tab To analyse the detected speech, we rely on a software develop by the  \href{http://sag.art.uniroma2.it/}{Semantic analytic group from the University of Roma} and the \href{http://labrococo.dis.uniroma1.it/}{Laboratory of Cognitive Cooperating Robots} at Sapienza University of Rome. This speech analyzer, named \href{http://sag.art.uniroma2.it/lu4r.html}{LU4R} for “Language Understanding For Robots”, is composed of a server developed in Java which take as an input the detected sentence and the semantic environment surrounding the robot.\\
@@ -146,31 +146,31 @@ For the moment, we are using the YOLO model but, we are looking forward to train
 \fi
 
 \subsection{Navigation}
-\tab In addition of last year navigation stack, this year we are using the pointcloud-to-lasercan package as a lighter solution for 3D navigation. This ensure a safe navigation around object like table or chair, since only the legs are detected by the lidar laser. Another great thing with this implementation is the fact that we can set the maximum height for collision avoidance. That way, if there’s an obstacle at head level, our robot will avoid it the same way it would avoir an object on the floor.
+\tab In addition of last year navigation stack, this year we are using the pointcloud-to-lasercan package as a lighter solution for 3D navigation. This ensure a safe navigation around object like table or chair, since only the legs are detected by the lidar laser. Another great thing with this implementation is the fact that we can set the maximum height for collision avoidance. That way, if there’s an obstacle at head level, our robot will avoid it the same way it would avoir an object on the floor. \\
 
 [image pointcloud\_to\_laserscan avec exemple d’une table]
 
 We still use octomap as part of the collision avoidance system for the moveit arm planning to ensure there’s no collision while moving to an object on top of a table.\\
 
 \subsection{Environmental reasoning}
-\tab As novelty this year, we implemented our own solution for an evironment representation in a way that we think is simple and easy for everyone. 
+\tab As novelty this year, we implemented our own solution for an evironment representation in a way that we think is simple and easy for everyone. \\
 
-Our package named \href{http://github.com/walkingmachine/wonderland}{wonderland} is an agnostic system in the same way than LU4R. It’s composed of a server that received HTTP query based on a custom API. 
+Our package named \href{http://github.com/walkingmachine/wonderland}{wonderland} is an agnostic system in the same way than LU4R. It’s composed of a server that received HTTP query based on a custom API. \\
 
-The first thing that is needed when you start using this platform is to populate the database. This can be done manually if you already know the object position, but this can be done by your robot trough POST query. It’s also possible to specify some room with a specific position relate to it. Once this is done, you can call our API and for example, juste by doing a GET request on the url http://wonderland:8000/object, this will return you the list of every object the database contains. It’s also possible possible to filter the request by giving a known color link to the object or a room as a parameter. 
+The first thing that is needed when you start using this platform is to populate the database. This can be done manually if you already know the object position, but this can be done by your robot trough POST query. It’s also possible to specify some room with a specific position relate to it. Once this is done, you can call our API and for example, juste by doing a GET request on the url http://wonderland:8000/object, this will return you the list of every object the database contains. It’s also possible possible to filter the request by giving a known color link to the object or a room as a parameter. \\
 
-Since the database is host as a server, you can access to it from everywhere. You could decide to export it to another computer, run in cloud or just put it on the robot system itself. It also give the possibility to have a dynamic knowledge, meaning that the robot can update it’s knowledge of his environment in real-time. 
+Since the database is host as a server, you can access to it from everywhere. You could decide to export it to another computer, run in cloud or just put it on the robot system itself. It also give the possibility to have a dynamic knowledge, meaning that the robot can update it’s knowledge of his environment in real-time. \\
 
 
 
-\section{Conclusions and future work}
+\section{Conclusions and future work} %TODO : New conclusion
 \tab As you can see, since last year, we made large progress, starting with the improvement of our object detection module. Also, the implementation of a semantic representation of the environment is a big step for us since it helps our robot to have a better understanding of his surrounding. Finally, the various mechanicals modifications will help for a better navigation and a better management of our robot. So SARA is now a completely autonomous system able of interaction with the human as well as navigation in her environment. Using his multiple sensors, like laser sensor, depth camera, IMU and odometry our robot can analyse his environment, recognize people and objects and navigate through obstacles. It can then interact with objects and people using his voice recognition and voice synthesis abilities to keep track of his state. All of the requirements for the Robocup@home are met by SARA and it's a fast-evolving robot considering the team is really young and composed of undergraduates in various engineering programs. As future works, we will add a second arm to give us the possibility for two-hands manipulation. Also, we'll add a vertical translation to our body to give our robot a larger range for objects manipulation.\\
 
 \include{RobotDescription}
 	
 
 \section*{Team members}
-Jeffrey Cousineau, Philippe La Madeleine, Maxime St-Pierre, Jimmy Poirier, Philippe La Madelaine, Samuel Otis, Redouane Laref, Louis-Charle Labarre, Lucas Maurice, Léonore Jean-François, Nicolas Nadeau 
+Jeffrey Cousineau, Philippe La Madeleine, Léonore Jean-François, Jimmy Poirier, Maxime St-Pierre, Philippe La Madelaine, Samuel Otis, Redouane Laref, Louis-Charle Labarre, Lucas Maurice, Nicolas Nadeau 
 
 \nocite{*}
 \bibliographystyle{plain}
