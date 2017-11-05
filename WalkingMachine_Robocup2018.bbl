@@ -3,38 +3,43 @@
 \bibitem{lu4r}
 {LU4R Project} - adaptive spoken {Language} {Understanding} {For} {Robots}.
 
-\bibitem{ork}
-Object {Recognition} {Kitchen} — object\_recognition\_core.
-\newblock \url{http://wg-perception.github.io/object_recognition_core/}.
+\bibitem{cao2017realtime}
+Zhe Cao, Tomas Simon, Shih-En Wei, and Yaser Sheikh.
+\newblock Realtime multi-person 2d pose estimation using part affinity fields.
+\newblock In {\em CVPR}, 2017.
 
-\bibitem{pocketsphinx}
-pocketsphinx - {ROS} {Wiki}.
-\newblock \url{http://wiki.ros.org/pocketsphinx}.
+\bibitem{yolo}
+Joseph Redmon and Ali Farhadi.
+\newblock Yolo9000: Better, faster, stronger.
+\newblock {\em arXiv preprint arXiv:1612.08242}, 2016.
 
-\bibitem{poseefk}
-robot\_pose\_ekf - {ROS} {Wiki}.
-\newblock \url{http://wiki.ros.org/robot_pose_ekf}.
-
-\bibitem{svox}
-Svox package : {Ubuntu}.
-\newblock \url{https://launchpad.net/ubuntu/precise/+source/svox/}.
-
-\bibitem{kinematic}
-J.~Denavit and R.~S. Hartenberg.
-\newblock {A kinematic notation for lower-pair mechanisms based on matrices.}
-\newblock {\em Trans. of the ASME. Journal of Applied Mechanics}, 22:215--221,
-  1955.
-
-\bibitem{slam}
-F.F. Sales.
-\newblock {\em SLAM and Localization of People with a Mobile Robot using a
-  RGB-D Sensor:}.
-\newblock Master of Science Dissertation. University of Coimbra, 2014.
+\bibitem{schillinger2016flexbe}
+Philipp Schillinger, Stefan Kohlbrecher, and Oskar von Stryk.
+\newblock {Human-Robot Collaborative High-Level Control with an Application to
+  Rescue Robotics}.
+\newblock In {\em IEEE International Conference on Robotics and Automation},
+  Stockholm, Sweden, May 2016.
 
 \bibitem{springer}
 Bruno Siciliano and Oussama Khatib, editors.
 \newblock {\em Springer Handbook of Robotics}.
 \newblock Springer, 2016.
+
+\bibitem{Siegwart:2004:IAM:983690}
+Roland Siegwart and Illah~R. Nourbakhsh.
+\newblock {\em Introduction to Autonomous Mobile Robots}.
+\newblock Bradford Company, Scituate, MA, USA, 2004.
+
+\bibitem{simon2017hand}
+Tomas Simon, Hanbyul Joo, Iain Matthews, and Yaser Sheikh.
+\newblock Hand keypoint detection in single images using multiview
+  bootstrapping.
+\newblock In {\em CVPR}, 2017.
+
+\bibitem{wei2016cpm}
+Shih-En Wei, Varun Ramakrishna, Takeo Kanade, and Yaser Sheikh.
+\newblock Convolutional pose machines.
+\newblock In {\em CVPR}, 2016.
 
 \bibitem{coordinate}
 Stephen~J. Wright.
