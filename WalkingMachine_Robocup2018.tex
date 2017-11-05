@@ -99,7 +99,7 @@ Next thing we improve was the compactness of our robot base. On our first compet
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.70\textwidth]{images/flexbe.png}
-	\caption{SARA 7 DoF arm}
+	\caption{FlexBe}
 \end{figure}
 
 But we do not simply use FlexBe as is. We still need write our own blocks for it using its python API. To simplify our work, we started by splitting all of the Robocup@home scenarios into basic actions. We then identified all of these basic actions our platform could accomplish and we confined them in blocks named States, e.g. MoveArm, MoveHead etc. These blocks can then be assembled together to form a higher level of blocs we named Actions e.g. Pick, LookAt etc. Those Actions can then again be assembled into what we call ActionWrappers. The role of ActionWrapper is to allow interfacing our Actions with our natural language processing software(see natural language processing below). They receive the segmented text and translate it to computer understandable parameters using our Wonderland (see environment reasoning below) knowledge base and other sources of informations. This recursive structure allow us allow us to quickly develop our robot’s behaviours.\\
@@ -116,15 +116,6 @@ The ActionWrappers are then fed into a FIFO based priority manager and finally s
 
 What is also interesting about LU4R, it’s that it will use the semantic mapping in it’s analysing process. All you have to do is to provide the correct pose for every object in the robot’s environment. You can also precise various synonym for every object to get a better understanding of inputted sentence.\\
 
-\ifdraft
-\begin{figure}
-  \centering
-  \includegraphics[width=150pt]{images/map.jpg}
-  \caption{Mapping}
-\end{figure}
-\fi
-
-
 
 \subsection{Object recognition}
 \tab As a beginning team, we are still exploring various solution around the object recognition problem. Our first plan was to use the object recognition kitchen package from Willow Garage. But after using it in competition, we realised that the performance and the easiness to use wasn’t what the approach we were looking for. As an alternative, we start using the YOLO (You Only Look Once) ros package (link). \\
@@ -133,7 +124,7 @@ YOLO is a real-time object detection. It does not only detect various object but
  
 \begin{figure}
   \centering
-  \includegraphics[width=250pt]{images/frame_to_box.png}
+  \includegraphics[width=200pt]{images/frame_to_box.png}
   \caption{2D bounding box to 3D grasping pose, current technique}
 \end{figure} 
  
@@ -152,25 +143,12 @@ Afterward, to get better results and a better pose, we plan to substract the poi
 
 For the moment, we are using the YOLO model but, we are looking forward to train our own dataset, just like we would do in competition. As an undergrad team, this is new for us but we have all the tools we need to overcome this. \\
 
-\ifdraft
-\begin{figure}
-  \centering
-  \includegraphics[width=150pt]{images/objectreco.png}
-  \caption{Object recognition}
-\end{figure}
-\fi
 
 \subsection{Navigation}
 \tab In addition of last year navigation stack, this year we are using the pointcloud-to-lasercan package as a lighter solution for 3D navigation. This ensure a safe navigation around object like table or chair, since only the legs are detected by the lidar laser. Another great thing with this implementation is the fact that we can set the maximum height for collision avoidance. That way, if there’s an obstacle at head level, our robot will avoid it the same way it would avoir an object on the floor. \\
 
-[image pointcloud\_to\_laserscan avec exemple d’une table]
-
-We still use octomap as part of the collision avoidance system for the moveit arm planning to ensure there’s no collision while moving to an object on top of a table.\\
-
 \subsection{Environmental reasoning}
-\tab As novelty this year, we implemented our own solution for an environment representation in a way that we think is simple and easy for everyone. \\
-
-Our package named \href{http://github.com/walkingmachine/wonderland}{wonderland} is an agnostic system in the same way than LU4R. It’s composed of a server that received HTTP query based on a custom API. \\
+\tab As novelty this year, we implemented our own solution for an environment representation in a way that we think is simple and easy for everyone. Our package named \href{http://github.com/walkingmachine/wonderland}{wonderland} is an agnostic system in the same way than LU4R. It’s composed of a server that received HTTP query based on a custom API. \\
 
 The first thing that is needed when you start using this platform is to populate the database. This can be done manually if you already know the object position, but this can be done by your robot through POST query. It’s also possible to specify some room with a specific position relate to it. Once this is done, you can call our API and for example, just by doing a GET request on the url http://wonderland:8000/object, this will return you the list of every object the database contains. It’s also possible possible to filter the request by giving a known color link to the object or a location as a parameter. \\
 
