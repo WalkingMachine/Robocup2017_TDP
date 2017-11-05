@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.4)  5 NOV 2017 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.4)  5 NOV 2017 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -948,8 +948,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--144
  []
 
 
-Overfull \hbox (0.12706pt too wide) in paragraph at lines 146--147
-|   \OT1/cmr/m/n/10 In ad-di-tion of last year nav-i-ga-tion stack, this year w
+Overfull \hbox (0.96039pt too wide) in paragraph at lines 146--147
+|   \OT1/cmr/m/n/10 In ad-di-tion to last year nav-i-ga-tion stack, this year w
 e are us-ing the pointcloud-
  []
 
@@ -1042,7 +1042,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmtt9.pfb>
-Output written on WalkingMachine_Robocup2018.pdf (8 pages, 1428930 bytes).
+Output written on WalkingMachine_Robocup2018.pdf (8 pages, 1428939 bytes).
 PDF statistics:
  194 PDF objects out of 1000 (max. 8388607)
  167 compressed objects within 2 object streams
