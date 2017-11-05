@@ -20,10 +20,10 @@ Specifications for robot SARA are as follows:
 \textbf{Head}               & Custom head made of RGB neopixels leds and Asus Xtion Pro                        \\
 \rowcolor[HTML]{EAEFF6} 
 \textbf{Gripper}            & Robotiq 2 fingers 140mm                                                           \\
-\rowcolor[HTML]{FFFFFF}  %TODO : New SARA dimensions
+\rowcolor[HTML]{FFFFFF}
 \textbf{Dimensions}         & \begin{tabular}[c]{@{}l@{}}Base : 0,61m. X 0,77m.\\ Height : 1,68m.\end{tabular} \\
 \rowcolor[HTML]{EAEFF6} 
-\textbf{Weight}             & $\sim$80kg                                                                      \\
+\textbf{Weight}             & $\sim$60kg                                                                      \\
 \rowcolor[HTML]{FFFFFF} 
 \textbf{Additional sensors} & Hokuyo UTM-30LX on base                                                          \\
 \rowcolor[HTML]{EAEFF6} 
@@ -34,10 +34,10 @@ Specifications for robot SARA are as follows:
 \textbf{Computer}           & 1x Lenovo p50 with 32GB RAM and nVidia Quadro M2000 4GB, 1x Raspberry Pi 3       \\ \hline
 \end{tabular}
 \caption{Robot's hardware description}
-\end{table} %TODO : Do another photo of SARA
+\end{table}
 \begin{wrapfigure}[10]{r}{0.25\textwidth}
 	\centering
-	\includegraphics[width=0.30\textwidth]{images/sara.png}
+	\includegraphics[width=0.30\textwidth]{images/sara_2.png}
 	\caption{Robot SARA}
 \end{wrapfigure}
 \section*{Robot's Software Description}
@@ -46,13 +46,13 @@ For our robot we are using the following software:
 
 \begin{itemize}
 	\item Platform: Robotic Operating System (ROS) Kinetic on Ubuntu 16.04
-	\item Navigation, localization and mapping: Gmapping, AMCL, pointcloud\_to\_laserscan
-	\item Face recognition: People
-	\item Speech recognition: Google Speech API
-	\item Speech comprehension : LU4R
-	\item Speech generation: Svoxpico
+	\item Navigation, localization and mapping: Gmapping, AMCL, \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_laserscan}
+	\item Face recognition: \href{http://wiki.ros.org/people}{People}
+	\item Speech recognition: \href{https://github.com/WalkingMachine/lab_ros_speech_to_text}{Google Speech API}
+	\item Speech comprehension: \href{http://sag.art.uniroma2.it/lu4r.html}{LU4R}, \href{https://github.com/WalkingMachine/lu4r_ros}{lu4r\_ros}
+	\item Speech generation: \href{https://doc.ubuntu-fr.org/svoxpico}{Svoxpico}
 	\item Object recognition: \href{https://github.com/WalkingMachine/wm_darknet}{Darknet with YOLO v2 }
-	\item Arms control: \href{http://wiki.ros.org/moveit}{MoveIt} and \href{https://github.com/Kinovarobotics/kinova-ros}{Kinova API}
-	\item Task executors: \href{http://wiki.ros.org/flexbe}{Flexbe} 
+	\item Arm control: \href{http://wiki.ros.org/moveit}{MoveIt} and \href{https://github.com/Kinovarobotics/kinova-ros}{Kinova API}
+	\item Task executor: \href{http://wiki.ros.org/flexbe}{Flexbe} 
 	\item World reprensentation: \href{http://github.com/walkingmachine/wonderland}{Wonderland}
 \end{itemize}

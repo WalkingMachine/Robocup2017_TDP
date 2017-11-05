@@ -70,15 +70,22 @@ SARA, our creation, was designed for polyvalent human-robot interaction as well 
 
 \tab As an improvement this year on the electrical side of our robot, we put a lot of efforts in the organization of the electrical systems, we made it much clearer and safer. We put a lot of protection for every sub-system since it’s easier to just change a fuse than rebuilding a whole electronic circuit board.\\
 
-Another big change for us was also the new battery system. We went from a custom LiPo battery to a system using drill batteries. This change bring way more positive aspects than we tought. First of all, this change was mainly decide just before leaving for Japan this year. This gave ves us the opportunity to ship the robot without any batteries and to bring the batteries with ourself. \\
+Another big change for us was the battery system. Just before leaving for Japan this year, we changed from our custom LiPo battery to a system using common tool batteries. This change has bringed way more positive aspects than we expected. First of all, it gives us the ability to ship the robot batteryless and to bring the batteries on our personal luggages. Which is a big deal when it come to shipping robots overseas.\\
 
-Second impact is that this type of battery is way safer than what we had before. We are using the drill charging station, that way we don’t have to worry about overcharging our batteries. We have two batteries onboard, this way we have more than enough power. We also 3d printed the original connector so we can easily interchange the batteries with charged ones. Finally, because there’s two batteries onboard, the robot can still run on one while we change the other one.\\
+Second impact is that this type of battery is way safer and convenient than what we had before. We can simply use the commercial charging station to charge our batteries, that way we don’t have to worry about overcharges or fires. Ours onboard dual batteries layout also bring enough charge to power our robot for a decent amount of time and allow us to easily perform live battery swapping without having to shut down the robot.\\
+
 
 
 \subsection{Mechanical}
+
 \tab Some mechanical improvement were also made this year. There’s mainly two things we improved on our robot, the arm and the base.\\
 
 First of all, last year, our arm was made of 5 degrees of freedom, which makes some path plan a little more complicated and sometimes, impossible. Because of that, we decide to add 2 degrees of freedom with 2 dynamixel servo motors. Since then, we have much better results with our inverse kinematic and this also extend our range to get objects that are further.\\
+\begin{wrapfigure}[10]{r}{0.20\textwidth}
+	\centering
+	\includegraphics[width=0.10\textwidth]{images/arm.png}
+	\caption{SARA 7 DoF arm}
+\end{wrapfigure}
 
 Next thing we improve was the compactness of our robot base. On our first competition in Germany, we observe that our robot was too large, which caused some problem with our path planning around the doors. By relying on these observations, we decided to reduce the width which improved a lot the navigation capabilities. \\
 \newpage
@@ -86,6 +93,14 @@ Next thing we improve was the compactness of our robot base. On our first compet
 
 \subsection{High-level task planning}
 \tab For our task planning, we use a state machine software developed by team Vigir, one of the participant of the Darpa Robotics Challenge. This software is named \href{http://philserver.bplaced.net/fbe/index.php}{FlexBe}, for Flexible Behavior, is a block based interface for making state machines.\\
+
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.70\textwidth]{images/flexbe.png}
+	\caption{SARA 7 DoF arm}
+\end{figure}
 
 But we do not simply use FlexBe as is. We still need write our own blocks for it using its python API. To simplify our work, we started by splitting all of the Robocup@home scenarios into basic actions. We then identified all of these basic actions our platform could accomplish and we confined them in blocks named States, e.g. MoveArm, MoveHead etc. These blocks can then be assembled together to form a higher level of blocs we named Actions e.g. Pick, LookAt etc. Those Actions can then again be assembled into what we call ActionWrappers. The role of ActionWrapper is to allow interfacing our Actions with our natural language processing software(see natural language processing below). They receive the segmented text and translate it to computer understandable parameters using our Wonderland (see environment reasoning below) knowledge base and other sources of informations. This recursive structure allow us allow us to quickly develop our robot’s behaviours.\\
 
@@ -153,24 +168,26 @@ For the moment, we are using the YOLO model but, we are looking forward to train
 We still use octomap as part of the collision avoidance system for the moveit arm planning to ensure there’s no collision while moving to an object on top of a table.\\
 
 \subsection{Environmental reasoning}
-\tab As novelty this year, we implemented our own solution for an evironment representation in a way that we think is simple and easy for everyone. \\
+\tab As novelty this year, we implemented our own solution for an environment representation in a way that we think is simple and easy for everyone. \\
 
 Our package named \href{http://github.com/walkingmachine/wonderland}{wonderland} is an agnostic system in the same way than LU4R. It’s composed of a server that received HTTP query based on a custom API. \\
 
-The first thing that is needed when you start using this platform is to populate the database. This can be done manually if you already know the object position, but this can be done by your robot trough POST query. It’s also possible to specify some room with a specific position relate to it. Once this is done, you can call our API and for example, juste by doing a GET request on the url http://wonderland:8000/object, this will return you the list of every object the database contains. It’s also possible possible to filter the request by giving a known color link to the object or a room as a parameter. \\
+The first thing that is needed when you start using this platform is to populate the database. This can be done manually if you already know the object position, but this can be done by your robot through POST query. It’s also possible to specify some room with a specific position relate to it. Once this is done, you can call our API and for example, just by doing a GET request on the url http://wonderland:8000/object, this will return you the list of every object the database contains. It’s also possible possible to filter the request by giving a known color link to the object or a location as a parameter. \\
 
-Since the database is host as a server, you can access to it from everywhere. You could decide to export it to another computer, run in cloud or just put it on the robot system itself. It also give the possibility to have a dynamic knowledge, meaning that the robot can update it’s knowledge of his environment in real-time. \\
+Since the database is host as a server, you can access it from everywhere. You could decide to export it to another computer, run in cloud or just put it on the robot system itself. It also give the possibility to have a dynamic knowledge, meaning that the robot can update it’s knowledge of his environment in real-time. \\
 
 
 
-\section{Conclusions and future work} %TODO : New conclusion
-\tab As you can see, since last year, we made large progress, starting with the improvement of our object detection module. Also, the implementation of a semantic representation of the environment is a big step for us since it helps our robot to have a better understanding of his surrounding. Finally, the various mechanicals modifications will help for a better navigation and a better management of our robot. So SARA is now a completely autonomous system able of interaction with the human as well as navigation in her environment. Using his multiple sensors, like laser sensor, depth camera, IMU and odometry our robot can analyse his environment, recognize people and objects and navigate through obstacles. It can then interact with objects and people using his voice recognition and voice synthesis abilities to keep track of his state. All of the requirements for the Robocup@home are met by SARA and it's a fast-evolving robot considering the team is really young and composed of undergraduates in various engineering programs. As future works, we will add a second arm to give us the possibility for two-hands manipulation. Also, we'll add a vertical translation to our body to give our robot a larger range for objects manipulation.\\
+\section{Conclusions and future work} 
+\tab As you can see, despite being a bunch of undergraduate students, our team is about to catch up with the rest of the league. We’ve recently put a lot of efforts into stabilising our platform and fixing as much bugs as possible to give us a strong foot to move forward.
+With it’s new swappable batteries system, object detection network and natural language processing, our robot has become a fully functional autonomous platform allowing us to focus our efforts on the challenges themselves instead of continuously fixing our hardware.
+\\
 
 \include{RobotDescription}
 	
 
 \section*{Team members}
-Jeffrey Cousineau, Philippe La Madeleine, Léonore Jean-François, Jimmy Poirier, Maxime St-Pierre, Philippe La Madelaine, Samuel Otis, Redouane Laref, Louis-Charle Labarre, Lucas Maurice, Nicolas Nadeau 
+Jeffrey Cousineau, Philippe La Madeleine, Maxime St-Pierre, Nathalie Connolly, Jimmy Poirier, Léonore Jean-François, Samuel Otis, Redouane Laref, Louis-Charle Labarre, Lucas Maurice, Nicolas Nadeau, Simon Landry, Cheuk Fai Shum, Veronica Romero Rosales, Nicolas Bernatchez, Quentin Gaillot, Raphael Duchaine, Jean-Frederic Boivin 
 
 \nocite{*}
 \bibliographystyle{plain}
