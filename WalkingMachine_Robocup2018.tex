@@ -70,9 +70,9 @@ SARA, our creation, was designed for polyvalent human-robot interaction as well 
 
 \tab As an improvement this year on the electrical side of our robot, we put a lot of efforts in the organization of the electrical systems, we made it much clearer and safer. We put a lot of protection for every sub-system since it’s easier to just change a fuse than rebuilding a whole electronic circuit board.\\
 
-Another big change for us was the battery system. Just before leaving for Japan this year, we changed our custom LiPo battery to a system using common tool batteries. This change has brought way more positive aspects than we expected. First of all, it gives us the ability to ship the robot batteryless and to bring the batteries on our personal luggage. Which is a big deal when it comes to shipping robots overseas.\\
+Another big change for us was the battery system. Just before leaving for Japan this year, we changed our custom LiPo battery to a system using common tool batteries. This change has brought way more positive aspects than we expected. First of all, it gives us the ability to ship the robot without the batteries and to bring the batteries in our personal luggage. Which is a big deal when it comes to shipping robots overseas.\\
 
-Second impact is that this type of battery is way safer and convenient than what we had before. We can simply use the commercial charging station to charge our batteries, that way we don’t have to worry about overcharges or fires. Our onboard dual batteries layout also brings enough charge to power our robot for a decent amount of time and allow us to easily perform live battery swapping without having to shut down the robot.\\
+Second impact is that this type of battery is way safer and convenient than what we had before. We can simply use the commercial charging station to charge our batteries, this reduces our risk of fire and overcharge. Our onboard dual batteries layout also brings enough charge to power our robot for a decent amount of time and allow us to easily perform live battery swapping without having to shut down the robot.\\
 
 
 
@@ -141,7 +141,7 @@ Afterward, to get better results and a better pose, we plan to subtract the poin
 For the moment, we are using the YOLO model but, we are looking forward to training our own dataset, just like we would do in competition. This is new for us but we have all the tools we need to overcome this. \\
 
 \subsection{Navigation}
-\tab In addition to last year navigation stack, this year we are using the \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_lasercan} package as a lighter solution for 3D navigation. This ensures a safe navigation around objects like table or chair since only the legs are detected by the lidar laser. Another great thing about this implementation is the fact that we can set the maximum height for collision avoidance. That way, if there’s an obstacle at head level, our robot will avoid it the same way it would avoir an object on the floor. \\
+\tab In addition to last year navigation stack, this year we are using the \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_lasercan} package as a lighter solution for 3D mapping and obstacle avoidance. This ensures a safe navigation around objects like table or chair since only the legs are detected by the lidar laser. Another great thing about this implementation is the fact that we can set the maximum height for collision avoidance. That way, if there’s an obstacle at head level, our robot will avoid it the same way it would with an object on the floor. \\
 
 \subsection{Environmental reasoning}
 \tab As a novelty this year, we implemented our own solution for an environment representation in a way that we think is simple and easy for everyone. Our package named \href{http://github.com/walkingmachine/wonderland}{wonderland} is an agnostic system in the same way than LU4R. It’s composed of a server that received HTTP query based on a custom API. \\
