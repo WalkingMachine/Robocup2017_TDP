@@ -48,7 +48,7 @@
 
 \author{Jeffrey Cousineau and Philippe La Madeleine}
 \institute{École de Technologie Supérieure \\ 1100 rue Notre-Dame Ouest, Montreal, QC, Canada H3C 1K3 \\
-\texttt{http://walkingmachine.ca,} \texttt{walking@ens.etsmtl.ca,} \texttt{https://github.com/WalkingMachine}}
+\texttt{\href{http://walkingmachine.ca}{http://walkingmachine.ca},} \texttt{walking@ens.etsmtl.ca,} \texttt{\href{https://github.com/WalkingMachine}{https://github.com/WalkingMachine}}}
 \maketitle
 
 
@@ -65,14 +65,14 @@ Ce rapport donne des détails à propos du projet de l'équipe Walking Machine d
 
 L'équipe de Walking Machine est une jeune équipe de Montréal et composée de jeunes étudiants dans le domaine du génie mécanique, électrique et logiciel. Elle a beaucoup travaillé au niveau de l'amélioration du robot pour la prochaine année afin de participer pour une troisième fois à la compétition Robocup@Home. Après quelques années d'expériences, il y a eu un très grand apprentissage, ce qui en résulte en de de belles améliorations qui mèneront à de meilleurs résultats, principalement du côté logiciel. Dans le passé, l'équipe a participé à plusieurs compétitions comme l'Eurobot mais, a décidé de changer afin de faire face à un plus grand défi et ainsi, d'avoir l'opportunité d'apporter une vague d'innovation dans le monde scientifique entourant la robotique. \\
 
-S.A.R.A. fut conçue pour une interaction humain-robot polyvalente et une navigation efficace. La plateforme robotique est équipée de roue mecanum et de moteurs Maxon alimentés par des drives Roboteq. Elle a également un bras permettant d'immiter un bras humain ainsi que des capteurs pour la communication et la navigation. Notre équipe a développé une certaine expérience dans la reconnaissance de visages et d'objets en plus de la navigation utilisant un laser 2D. Ces différents modules sont interfacés via ROS (Robot Operating System). \\
+S.A.R.A. fut conçue pour une interaction humain-robot polyvalente et une navigation efficace. La plateforme robotique est équipée de roue mecanum et de moteurs Maxon alimentés par des drives Roboteq. Elle a également un bras permettant d'imiter un bras humain ainsi que des capteurs pour la communication et la navigation. Notre équipe a développé une certaine expérience dans la reconnaissance de visages et d'objets en plus de la navigation utilisant un laser 2D. Ces différents modules sont interfacés via ROS (Robot Operating System). \\
 
 \section{Améliorations électriques et mécaniques}
 \subsection{Électrique}
 
 Comme amélioration cette année du côté électrique, nous avons mis beaucoup d'efforts sur l'organisation du système en le rendant plus clair et sécuritaire. Nous avons donc ajouté des protections pour chaque sous-système électrique puisqu'il est beaucoup plus facile de changer un fusible qu'un circuit complet. \\
 
-Un autre gros changement pour nous fut le système de batterie. Tout juste avant de partir pour notre compétition au Japon en juillet 2017, nous avons changé notre ancienne batterie LiPo maison par des batteries de perceuse. Ce changement a apporté beaucoup plus de points positifs que prévus. Tout d'abord, cela a simplifié l'exportation internationale de notre robot et nous permettait d'emmener les batteries dans nos bagages personnels. Le deuxième impact majeur fut le sentiment de sécurité qui accompagnait ce type de batterie. Il est beaucoup plus facile de les charger et la manoeuvre est plus sécuritaire puisque ce type de batterie possède leur propre chargeur adapté avec des circuits de protection. De plus, notre système à deux batteries instauré dans notre robot nous donne la possibilité d'enlever une des deux batteries sans avoir à éteindre le système complet.\\
+Un autre gros changement pour nous fut le système de batterie. Tout juste avant de partir pour notre compétition au Japon en juillet 2017, nous avons changé notre ancienne batterie LiPo maison par des batteries de perceuse. Ce changement a apporté beaucoup plus de points positifs que prévu. Tout d'abord, cela a simplifié l'exportation internationale de notre robot et nous permettait d'emmener les batteries dans nos bagages personnels. Le deuxième impact majeur fut le sentiment de sécurité qui accompagnait ce type de batterie. Il est beaucoup plus facile de les charger et la manoeuvre est plus sécuritaire puisque ce type de batterie possède leur propre chargeur adapté avec des circuits de protection. De plus, notre système à deux batteries instauré dans notre robot nous donne la possibilité d'enlever une des deux batteries sans avoir à éteindre le système complet.\\
 
 
 
@@ -80,7 +80,7 @@ Un autre gros changement pour nous fut le système de batterie. Tout juste avant
 
 Quelques améliorations mécaniques furent également complétées durant l'année. Il y a principalement deux aspects qui furent repensés, soit le bras ainsi que la base.\\
 
-Tout d'abord, l'année passée, notre bras possédait cinq degrés de liberté, ce qui rendait la planification de trajectoire beaucoup plus complexe et limitait grandement les mouvements. Nous avons donc décidé de rajouter deux degrés de liberté grâce à deux servo-moteur Dynamixel. Depuis cette modification, nous avons des résultats grandement améliorés et une plus grande liberté de mouvement. Cela a également comme impact de rallonger le bras ce qui nous donne une portée beaucoup plus grande.\\
+Tout d'abord, l'année passée, notre bras possédait cinq degrés de liberté, ce qui rendait la planification de trajectoire beaucoup plus complexe et limitait grandement les mouvements. Nous avons donc décidé de rajouter deux degrés de liberté grâce à deux servomoteurs Dynamixel. Depuis cette modification, nous avons des résultats grandement améliorés et une plus grande liberté de mouvement. Cela a également comme impact de rallonger le bras ce qui nous donne une portée beaucoup plus grande.\\
 
 \begin{wrapfigure}[10]{r}{0.20\textwidth}
 	\centering
@@ -102,7 +102,7 @@ Afin de planifier l'ensemble des tâches que notre plateforme pouvait accomplir,
 	\caption{Représentation de FlexBe}
 \end{figure}
 
-Par contre, nous n'utilisons pas tout simplement FlexBe, nous devons programmer nos propres états en utilisant l'API en python. Pour simplifier notre travail, nous avons commencé par diviser tous les scénarios de base demandés lors de la compétition Robocup@Home en petites actions reproductibles. Nous avons ensuite repéré ceux pouvant être accomplies par notre robot et les avons transformés en état (ex : mouvement du bras à une position X). Ces blocs d'état peuvent ensuite être assemblés ensemble pour former une hierachie plus élevée que l'on nomme Actions. Nous assemblons finalement ces actions en ActionWrapper qui permettront d'interfacer les actions générale de notre robot avec la détection vocale ainsi que le traitement du language. Ces différents modules interpêtent ainsi le language et le transforme en actions réalisables par le robot. Cette structure récursive nous permet donc un développement beaucoup plus rapide pour chaque tâche nécessaire. \\
+Par contre, nous n'utilisons pas tout simplement FlexBe, nous devons programmer nos propres états en utilisant l'API en python. Pour simplifier notre travail, nous avons commencé par diviser tous les scénarios de base demandés lors de la compétition Robocup@Home en petites actions reproductibles. Nous avons ensuite repéré ceux pouvant être accomplis par notre robot et les avons transformés en état (ex : mouvement du bras à une position X). Ces blocs d'état peuvent ensuite être assemblés ensemble pour former une hiérachie plus élevée que l'on nomme Actions. Nous assemblons finalement ces actions en ActionWrapper qui permettront d'interfacer les actions générales de notre robot avec la détection vocale ainsi que le traitement du langage. Ces différents modules interprètent ainsi le langage et le transforment en actions réalisables par le robot. Cette structure récursive nous permet donc un développement beaucoup plus rapide pour chaque tâche nécessaire. \\
 
 \subsection{Traitement du langage naturel}
 
@@ -119,7 +119,7 @@ Ce qui est également intéressant à propos de LU4R, c'est qu'il utilisera la c
 
 En tant qu'équipe débutante, nous explorons encore diverses solutions autour du problème de la reconnaissance d'objets. Notre première approche était d'utiliser le paquet ROS ORK (object recognition kitchen) de Willow Garage. Mais, après l'avoir utilisé en compétition, nous avons réalisé que la performance et la facilité d'utilisation n'étaient pas l'approche que nous recherchions. Comme alternative, nous avons commencé à utiliser le paquet YOLO \cite{yolo} (You Only Look Once). \\
 
-YOLO permet la détection d'objets en temps réel. Il ne détecte pas seulement divers objets, mais il prédit également la boîte de délimitation de l'objet détecté. Il utilise un réseau de neurones qui est appliqué à l'image. Plusieurs régions sont ensuite créées et sont utilisées pour prédire les zones de délimitation. Chaque objet contient également son niveau de confiance indiquant à quel niveau nous sommes certain du type d'objet détecté, qui est ensuite utilisé pour filtrer ces derniers. L'avantage de ce système est qu'il peut détecter plusieurs objets en même temps dans un scénario temps-réel. \\
+YOLO permet la détection d'objets en temps réel. Il ne détecte pas seulement divers objets, mais il prédit également la boîte de délimitation de l'objet détecté. Il utilise un réseau de neurones qui est appliqué à l'image. Plusieurs régions sont ensuite créées et sont utilisées pour prédire les zones de délimitation. Chaque objet contient également son niveau de confiance indiquant à quel niveau nous sommes certains du type d'objet détecté, qui est ensuite utilisé pour filtrer ces derniers. L'avantage de ce système est qu'il peut détecter plusieurs objets en même temps dans un scénario temps-réel. \\
 
  
 \begin{figure}
@@ -128,9 +128,9 @@ YOLO permet la détection d'objets en temps réel. Il ne détecte pas seulement 
   \caption{Boîte de délimitation 2D vers la pose de préhension en 3D, technique actuelle}
 \end{figure} 
  
-Nous utilisons le paquet ROS pour faciliter notre travail car, cela nous permet d'obtenir directement la sortie des objets reconnus dans un "topic" ROS. Nous pouvons également obtenir la boîte de délimitation pour chaque objet détecté. La première étape que nous avons dû faire était de transformer ces boîtes 2D en 3D afin d'obtenir une pose realtive à notre robot. \\
+Nous utilisons le paquet ROS pour faciliter notre travail, car cela nous permet d'obtenir directement la sortie des objets reconnus dans un "topic" ROS. Nous pouvons également obtenir la boîte de délimitation pour chaque objet détecté. La première étape que nous avons dû faire était de transformer ces boîtes 2D en 3D afin d'obtenir une pose relative à notre robot. \\
 
-Pour le moment, nous avons créé le paquet \href{https://github.com/WalkingMachine/wm_frame_to_box}{wm\_frame\_to\_box} pour approcher la pose de l'objet utilisant le pixel de profondeur se retrouvant au centre de la boîte. Même si elle peut présenter des failles, cette technique s'est également avérée largement suffisante pour la plupart de nos applications et, plus important encore, elle utilise beaucoup moins de puissance de traitement que la correspondance de formes 3D utilisée auparavant. Cela nous permet de faire du positionnement d'objets en temps réel, une fonctionnalité dont nous sommes fiers d'avoir accomplie. \\
+Pour le moment, nous avons créé le paquet \href{https://github.com/WalkingMachine/wm_frame_to_box}{wm\_frame\_to\_box} pour approcher la pose de l'objet utilisant le pixel de profondeur se retrouvant au centre de la boîte. Même si elle peut présenter des failles, cette technique s'est également avérée largement suffisante pour la plupart de nos applications et, plus importante encore, elle utilise beaucoup moins de puissance de traitement que la correspondance de formes 3D utilisée auparavant. Cela nous permet de faire du positionnement d'objets en temps réel, une fonctionnalité dont nous sommes fiers d'avoir accompli. \\
 
 Par la suite, pour obtenir de meilleurs résultats et une meilleure pose, nous prévoyons soustraire le nuage de points en fonction des limites. Nous l'utiliserons ensuite avec la segmentation de nuage de points de la bibliothèque \href{http://pointclouds.org}{PCL} pour extraire l'objet spécifique et l'envoyer à un paquet d'identification de saisie comme \href{http://wiki.ros.org/haf_grasping}{haf\_grasping}. Cette technique, comparée à ce que nous utilisons actuellement, nous donnerait la possibilité de saisir une plus grande variété d'objets. \\
 
@@ -140,24 +140,24 @@ Par la suite, pour obtenir de meilleurs résultats et une meilleure pose, nous p
   \caption{Boîte de délimitation 2D vers la pose de préhension en 3D, technique future}
 \end{figure}
 
-Pour l'instant, nous utilisons le modèle YOLO, mais nous souhaitons entrainer notre proposer ensemble de données, comme nous le ferions en compétition. C'est nouveau pour nous mais, nous avons tous les outils dont nous avons besoin pour surmonter cela. \\
+Pour l'instant, nous utilisons le modèle YOLO, mais nous souhaitons entrainer notre proposer ensemble de données, comme nous le ferions en compétition. C'est nouveau pour nous, mais, nous avons tous les outils dont nous avons besoin pour surmonter cela. \\
 
 \subsection{Navigation}
-En plus de notre système de navigation précédemment utilisé, cette année nous utilisons le module \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_lasercan} comme solution plus légère afin de faire de l'évitement d'objets en 3D. Cela nous assure une navigation beaucoup plus sécuritaire puisqu'en utilisant seulement une navigation 2D à l'aide d'un lidar, il serait possible que le robot entre en collision avec une table puisqu'il ne verrait que les pattes de celle-ci. Un autre avantage de cette implementation est qu'il est possible de spécifier la hauteur maximum au niveau des collisions. Ainsi, nous évitons également les possibles collisions avec la tête de notre robot. \\
+En plus de notre système de navigation précédemment utilisé, cette année nous utilisons le module \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_lasercan} comme solution plus légère afin de faire de l'évitement d'objets en 3D. Cela nous assure une navigation beaucoup plus sécuritaire puisqu'en utilisant seulement une navigation 2D à l'aide d'un lidar, il serait possible que le robot entre en collision avec une table puisqu'il ne verrait que les pattes de celle-ci. Un autre avantage de cette implémentation est qu'il est possible de spécifier la hauteur maximum au niveau des collisions. Ainsi, nous évitons également les possibles collisions avec la tête de notre robot. \\
 
 \subsection{Représentation de l'environnement}
 Comme nouveauté cette année, nous avons implémenté notre propre solution afin de représenter l'environnement entourant le robot d'une façon simple pour tout le monde. Notre solution que nous avons nommée \href{http://github.com/walkingmachine/wonderland}{wonderland} est un système agnostique dans le même genre que LU4R présenté plus tôt. Elle est composée d'un serveur recevant une requête HTTP basée sur un API développé par l'équipe.\\
 
-La première choses requise pour commencer à utiliser cette plateforme, est l'action de populer la base de donnée. Cela peut être fait de façon manuelle en indiquant la position de chaque objet connu, mais cela peut être fait par le robot à l'aide de requête POST. Il est également possible de spécifier une pièce avec une position relative à celle-ci. Lorsque les différentes informations sont insérées, il est possible de faire une requête GET sur l'adresse définissant le serveur de wonderland (ex : http://wonderland:8000/object). Cette dernière retournera la liste complète des objets contenus dans la base de donnée. Il est également possible de filtrer les demandes en rajoutant par exemple une couleur ou une position comme paramètre. \\
+La première chose requise pour commencer à utiliser cette plateforme, est l'action de populer la base de données. Cela peut être fait de façon manuelle en indiquant la position de chaque objet connu, mais cela peut être fait par le robot à l'aide de requête POST. Il est également possible de spécifier une pièce avec une position relative à celle-ci. Lorsque les différentes informations sont insérées, il est possible de faire une requête GET sur l'adresse définissant le serveur de wonderland (ex : http://wonderland:8000/object). Cette dernière retournera la liste complète des objets contenus dans la base de données. Il est également possible de filtrer les demandes en rajoutant par exemple une couleur ou une position comme paramètre. \\
 
-Puisque la base de donnée est hébergée sur un serveur, il est possible d'y accéder depuis n'importe où. Il est possible de l'exporter sur un autre ordinateur, de la mettre en infonuagique ou seulement de l'installer sur l'ordinateur même du robot. Cela donne également la possibilité d'avoir une connaissance dynamique, ce qui signifie que le robot peut mettre à jour ses connaissances de l'environnement en temps réel.\\
+Puisque la base de données est hébergée sur un serveur, il est possible d'y accéder depuis n'importe où. Il est possible de l'exporter sur un autre ordinateur, de la mettre en infonuagique ou seulement de l'installer sur l'ordinateur même du robot. Cela donne également la possibilité d'avoir une connaissance dynamique, ce qui signifie que le robot peut mettre à jour ses connaissances de l'environnement en temps réel.\\
 
 
 
 \section{Conclusion et projets futurs} 
-Comme vous pouvez le constater, malgré que nous soyons une équipe composée principalement d'étudiants de premier cycle, nous sommes tout de même capable de rivaliser avec les autres équipes issues de laboratoire de recherche. Nous avons récemment mis beaucoup d'efforts afin d'avoir une plateforme plus stable et de réduire les différents problèmes présents, nous permettant donc d'avancer dans la bonne direction. \\
+Comme vous pouvez le constater, malgré que nous soyons une équipe composée principalement d'étudiants de premier cycle, nous sommes tout de même capables de rivaliser avec les autres équipes issues de laboratoire de recherche. Nous avons récemment mis beaucoup d'efforts afin d'avoir une plateforme plus stable et de réduire les différents problèmes présents, nous permettant donc d'avancer dans la bonne direction. \\
 
-Avec notre nouveau système de batteries interchangeables, notre détection d'objets et l'inteprétation du language naturel, notre robot est devenu une plateforme autonome complètement fontionnelle, nous permettant ainsi de nous concentrer sur le coeur des défis de la compétition.\\
+Avec notre nouveau système de batteries interchangeables, notre détection d'objets et l'interprétation du langage naturel, notre robot est devenu une plateforme autonome complètement fonctionnelle, nous permettant ainsi de nous concentrer sur le coeur des défis de la compétition.\\
 
 \include{RobotDescription}
 	
