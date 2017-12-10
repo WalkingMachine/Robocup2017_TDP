@@ -11,46 +11,46 @@
 \rowcolor[HTML]{EAEFF6} 
 \textbf{Base}               & Base avec roues holonomiques mecanums \\
 \rowcolor[HTML]{FFFFFF} 
-\textbf{Bras}          & 7 DoF custom arm made of Kinova motors                                           \\
+\textbf{Bras}          & Bras robotique à 7 degrés de liberté constitué de moteurs Kinova                                           \\
 \rowcolor[HTML]{EAEFF6} 
-\textbf{Cou}               & Tilt and pan unit using two Dynamixel MX-64R servo actuator                      \\
+\textbf{Cou}               & Inclinaison et rotation du cou à l'aide de servo-moteur Dynamixel                      \\
 \rowcolor[HTML]{FFFFFF} 
-\textbf{Tête}               & Custom head made of RGB neopixels leds and Asus Xtion Pro                        \\
+\textbf{Tête}               & Circuit composé de 80 DEL Neopixel et camera Asus Xtion                        \\
 \rowcolor[HTML]{EAEFF6} 
-\textbf{Pince robotique}            & Robotiq 2 doigts 140mm                                                           \\
+\textbf{Pince robotique}            & Pince Robotiq à 2 doigts 140mm                                                           \\
 \rowcolor[HTML]{FFFFFF}
-\textbf{Dimensions}         & \begin{tabular}[c]{@{}l@{}}Base : 0,61m. X 0,77m.\\ Height : 1,68m.\end{tabular} \\
+\textbf{Dimensions}         & \begin{tabular}[c]{@{}l@{}}Base : 0,61m. X 0,77m.\\ Hauteur : 1,68m.\end{tabular} \\
 \rowcolor[HTML]{EAEFF6} 
 \textbf{Poids}             & $\sim$60kg                                                                      \\
 \rowcolor[HTML]{FFFFFF} 
-\textbf{Capteurs additionnels} & Hokuyo UTM-30LX on base                                                          \\
+\textbf{Capteurs additionnels} & Lidar Hokuyo UTM-30LX sur la base                                                          \\
 \rowcolor[HTML]{EAEFF6} 
 \textbf{Microphone}         & Microphone Rode											                         \\
 \rowcolor[HTML]{FFFFFF} 
-\textbf{Batteries}          & 2x 20V Dewalt drill batteries 5aH                                                 \\
+\textbf{Batteries}          & 2x 20V batteries de perceuse Dewalt 5AH                                                 \\
 \rowcolor[HTML]{EAEFF6} 
 \textbf{Ordinateur}           & 1x Lenovo p50 avec 32GB RAM et nVidia Quadro M2000 4GB, 1x Raspberry Pi 3       \\ \hline
 \end{tabular}
-\caption{Robot's hardware description}
+\caption{Composantes matérielles du robot}
 \end{table}
 \begin{wrapfigure}[10]{r}{0.25\textwidth}
 	\centering
 	\includegraphics[width=0.30\textwidth]{images/sara_2.png}
 	\caption{Robot SARA}
 \end{wrapfigure}
-\section*{Robot's Software Description}
+\section*{Description logicielle du robot}
 
-For our robot we are using the following software:
+
 
 \begin{itemize}
-	\item Platform: Robotic Operating System (ROS) Kinetic on Ubuntu 16.04
-	\item Navigation, localization and mapping: \href{http://wiki.ros.org/gmapping}{Gmapping}, \href{http://wiki.ros.org/amcl}{AMCL}, \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_laserscan}
-	\item Face recognition: \href{http://wiki.ros.org/people}{People}
-	\item Speech recognition: \href{https://github.com/WalkingMachine/lab_ros_speech_to_text}{Google Speech API}
-	\item Speech comprehension: \href{http://sag.art.uniroma2.it/lu4r.html}{LU4R}, \href{https://github.com/WalkingMachine/lu4r_ros}{lu4r\_ros}
-	\item Speech generation: \href{https://doc.ubuntu-fr.org/svoxpico}{Svoxpico}
-	\item Object recognition: \href{https://github.com/WalkingMachine/wm_darknet}{Darknet with YOLO v2 }
-	\item Arm control: \href{http://wiki.ros.org/moveit}{MoveIt} and \href{https://github.com/Kinovarobotics/kinova-ros}{Kinova API}
-	\item Task executor: \href{http://wiki.ros.org/flexbe}{Flexbe} 
-	\item World reprensentation: \href{http://github.com/walkingmachine/wonderland}{Wonderland}
+	\item Plateforme: Robotic Operating System (ROS) Kinetic sur Ubuntu 16.04
+	\item Navigation, localisation et construction de la map: \href{http://wiki.ros.org/gmapping}{Gmapping}, \href{http://wiki.ros.org/amcl}{AMCL}, \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_laserscan}
+	\item Reconnaissance faciale: \href{http://wiki.ros.org/people}{People}
+	\item Reconnaissance vocale: \href{https://github.com/WalkingMachine/lab_ros_speech_to_text}{Google Speech API}
+	\item Sémantique vocale: \href{http://sag.art.uniroma2.it/lu4r.html}{LU4R}, \href{https://github.com/WalkingMachine/lu4r_ros}{lu4r\_ros}
+	\item Génération de la voix: \href{https://doc.ubuntu-fr.org/svoxpico}{Svoxpico}
+	\item Reconnaissance d'objets: \href{https://github.com/WalkingMachine/wm_darknet}{Darknet with YOLO v2 }
+	\item Contrôle du bras: \href{http://wiki.ros.org/moveit}{MoveIt} and \href{https://github.com/Kinovarobotics/kinova-ros}{Kinova API}
+	\item Exécution des tâches: \href{http://wiki.ros.org/flexbe}{Flexbe} 
+	\item Représentation de l'environnement: \href{http://github.com/walkingmachine/wonderland}{Wonderland}
 \end{itemize}
