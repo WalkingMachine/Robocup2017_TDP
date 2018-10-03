@@ -31,6 +31,9 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{hyperref}
 
+\newcommand\notes[1]{\textcolor{red}{#1}}
+
+
 \begin{document}
 
 
@@ -42,9 +45,9 @@
 \setlength{\belowcaptionskip}{-5pt}
 \fi
 
-\title{Walking Machine @Home \newline \: 2018 Team Description Paper}
+\title{Walking Machine @Home \newline \: 2019 Team Description Paper}
 
-\author{Jeffrey Cousineau and Philippe La Madeleine}
+\author{Jeffrey Cousineau, Huynh-Anh Le, et al.}
 \institute{École de Technologie Supérieure \\ 1100 rue Notre-Dame Ouest, Montreal, QC, Canada H3C 1K3 \\
 \texttt{http://walkingmachine.ca,} \texttt{walking@ens.etsmtl.ca,} \texttt{https://github.com/WalkingMachine}}
 \maketitle
@@ -60,7 +63,7 @@ This paper gives details about the RoboCup@Home league team Walking Machine, fro
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
-\tab Walking Machine’s team is a young team from Montreal, Quebec, in Canada, composed of engineering students in the field of mechanical, electrical and software engineering. We have been working really hard to improve our robot for the next year Robocup@Home competition. As this would be our third participation, we learned a lot on our second attempt last year and have made many improvements to get better results, mostly on the software side. In the past, the team went in many competitions like the Eurobot, but made the leap for the RoboCup@Home competition to get a bigger challenge and to get an opportunity to bring novelty in the scientific community around robotic. \\
+\tab Walking Machine’s team is a young team from Montreal, Quebec, in Canada, composed of engineering students in the field of mechanical, electrical and software engineering. We have been working really hard to improve our robot for the next year Robocup@Home competition. As this would be our fourth participation, we learned a lot at Montreal Robocup and we made many improvements to get better results, mostly on the software side. In the past, the team went in many competitions like the Eurobot, but made the leap for the RoboCup@Home competition to get a bigger challenge and to get an opportunity to bring novelty in the scientific community surrounding robotic. \\
 
 
 SARA, our creation, was designed for polyvalent human-robot interaction as well as efficient navigation and object manipulation. Our robot is mounted on four mecanum wheels powered by Roboteq drives, has one arm mimicking a normal human arm, and sensors for communication and navigation. Our team has developed knowledge in object and people detection/recognition, as well as navigation using a laser scanner, odometry on the wheels and a Asus Xtion camera. All of these parts are interfaced through ROS (Robot Operating System). \\
@@ -153,16 +156,31 @@ Since the database is hosted as a server, you can access it from everywhere. You
 
 
 \section{Conclusions and future work} 
-\tab As you can see, despite being a group of undergraduate students, our team is about to catch up with the rest of the league. We’ve recently put a lot of efforts into stabilizing our platform and fixing as many bugs as possible to give us a strong foot to move forward.\\
+\notes{Pourrait être rephrasé.}
+As you can see, despite being a group of undergraduate students, our team is about to catch up with the rest of the league. We’ve recently put a lot of efforts into stabilizing our platform and fixing as many bugs as possible to give us a strong foot to move forward.\\
 
+\notes{Actualiser le dernier paragraphe.}
 With its new swappable batteries system, object detection network and natural language processing, our robot has become a fully functional autonomous platform allowing us to focus our efforts on the challenges themselves instead of continuously fixing our hardware.
 \\
 
 \include{RobotDescription}
 	
-
 \section*{Team members}
-Jeffrey Cousineau, Philippe La Madeleine, Maxime St-Pierre, Nathalie Connolly, Jimmy Poirier, Léonore Jean-François, Samuel Otis, Redouane Laref, Louis-Charle Labarre, Lucas Maurice, Nicolas Nadeau, Simon Landry, Cheuk Fai Shum, Veronica Romero Rosales, Nicolas Bernatchez, Quentin Gaillot, Raphael Duchaine, Jean-Frederic Boivin 
+André-Philippe Audette,
+Nicolas Bernatchez,
+Pierre-Emmanuel Billeau,
+Jeffrey Cousineau, 
+Raphael Duchaine,
+Quentin Gaillot,
+Louis-Charle Labarre, 
+Philippe La Madeleine,  
+Redouane Laref,
+Vincent Lavoie-Marchildon,
+Huynh-Anh Le,
+Lucas Maurice,
+Alexandre Mongrain,
+Jimmy Poirier,
+Veronica Romero Rosales
 
 \nocite{*}
 \bibliographystyle{plain}
