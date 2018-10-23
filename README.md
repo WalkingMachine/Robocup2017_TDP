@@ -8,5 +8,5 @@ Robocup@Home 2018 TDP ([english](https://github.com/WalkingMachine/wm_robocup_td
 # Usage instructions
 Template for the Team Description Paper
 
-~~* TeX installation : https://www.tug.org/texlive/quickinstall.html~~
+* ~~TeX installation : https://www.tug.org/texlive/quickinstall.html~~
 * Recommanded editor : `sudo apt-get install texmaker`
