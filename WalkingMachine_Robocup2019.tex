@@ -31,6 +31,7 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{hyperref}
 \usepackage{subcaption}
+\usepackage[T1]{fontenc}
 
 \newcommand\notes[1]{\textcolor{red}{#1}}
 
@@ -95,51 +96,33 @@ We also decided to improve our wrist by adding a gearbox, giving it more strengt
 \newpage
 \section{Software}
 
-\subsection{High-level task planning}
-\tab For our task planning, we use a state machine software developed by team Vigir, one of the participants of the Darpa Robotics Challenge. This software, named \href{http://philserver.bplaced.net/fbe/index.php}{FlexBe}\cite{schillinger2016flexbe}, for Flexible Behavior, is a block-based interface for making state machines.\\
+\subsection{Natural language understanding}
+\tab To convert spoken data in actions subset, we had to create our own natural language understanding system. To do this, we based ourself on rasa nlu\cite{rasa}, an open-source nlp tool for intent classification and entity extraction. But a simple entity extraction wasn't enough for us, we wanted a system that would take a command as an input and output the desired actions.\\
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.70\textwidth]{images/flexbe.png}
-	\caption{FlexBe behavior representation}
-\end{figure}
+To do this, our first step was to create a dataset for the entity classification. Based on the GPSRCmdGen, we generated sentences which we hand labeled by attributing an entity to each specific type of sentence.      
 
-But we do not simply use FlexBe as is. We still need to write our own states using its python API. To simplify our work, we started by splitting all of the Robocup@home scenarios into basic actions. We then identified all of these basic actions our platform could accomplish and we confined them in blocks named States, e.g. MoveArm, MoveHead etc. These blocks can then be assembled together to form a higher level of blocks we named Actions e.g. Pick, LookAt etc. Those Actions can then again be assembled into what we call ActionWrappers. The role of ActionWrapper is to allow interfacing our Actions with our natural language processing software(see natural language processing below). They receive the segmented text and translate it to computer understandable parameters using our Wonderland (see environment reasoning below) knowledge base and other sources of information. This recursive structure allows us to quickly develop our robot’s behaviours.\\
+\begin{figure}
+  \centering
+  \includegraphics[width=200pt]{images/wm_nlu.png}
+  \caption{Natural language understanding process}
+\end{figure} 
 
-\subsection{Natural language processing}
-\tab 
-
+\subsection{Sound localization}
+\tab
 
 \subsection{Object recognition}
 \tab For our object recognition, we use YOLO \cite{yolo}, a real-time object detection. It does not only detect various object but it also predicts the bounding boxes of the detected object. It uses a single neural network which is applied to the image. Multiple regions are then created and are used to predict the bounding boxes. Each of them also contains the predicted probability which is used to filter the predicted objects. The advantage of this system is that it can detect multiple objects in a real-time scenario.\\
  
+
+\subsection{Objects and people tracking}
+
 \begin{figure}
   \centering
-  \includegraphics[width=200pt]{images/frame_to_box.png}
-  \caption{2D bounding box to 3D grasping pose, current technique}
+  \includegraphics[width=200pt]{images/wm_data_collector.png}
+  \caption{ wm\_data\_collector process}
 \end{figure} 
- 
 
-
-\begin{figure}
-  \centering
-  \includegraphics[width=300pt]{images/frame_to_box2.png}
-  \caption{2D bounding box to 3D grasping pose, future technique}
-\end{figure}
-
-For the moment, we are using the YOLO model but, we are looking forward to training our own dataset, just like we would do in competition. This is new for us but we have all the tools we need to overcome this. \\
-
-\subsection{Navigation}
-\tab In addition to last year navigation stack, this year we are using the \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_lasercan} package as a lighter solution for 3D mapping and obstacle avoidance. This ensures a safe navigation around objects like table or chair since only the legs are detected by the lidar laser. Another great thing about this implementation is the fact that we can set the maximum height for collision avoidance. That way, if there’s an obstacle at head level, our robot will avoid it the same way it would with an object on the floor. \\
-
-\subsection{Environmental reasoning}
-\tab As a novelty this year, we implemented our own solution for an environment representation in a way that we think is simple and easy for everyone. Our package named \href{http://github.com/walkingmachine/wonderland}{wonderland} is an agnostic system in the same way than LU4R. It’s composed of a server that received HTTP query based on a custom API. \\
-
-The first thing that is needed when you start using this platform is to populate the database. This can be done manually if you already know the object position, but this can be done by your robot through POST query. It’s also possible to specify some room with a specific position relates to it. Once this is done, you can call our API and for example, just by doing a GET request on the URL http://wonderland:8000/object, this will return you the list of every object the database contains. It’s also possible to filter the request by giving a known color, link to the object or a location as a parameter. \\
-
-Since the database is hosted as a server, you can access it from everywhere. You could decide to export it to another computer, run it in the cloud or just put it on the robot system itself. It also gives the possibility to have a dynamic knowledge, meaning that the robot can update its knowledge of his environment in real-time. \\
-
-
+\newpage
 
 \section{Conclusions and future work} 
 \notes{Pourrait être rephrasé.}
