@@ -97,9 +97,11 @@ We also decided to improve our wrist by adding a gearbox, giving it more strengt
 \section{Software}
 
 \subsection{Natural language understanding}
-\tab To convert spoken data in actions subset, we had to create our own natural language understanding system. To do this, we based ourself on rasa nlu\cite{rasa}, an open-source nlp tool for intent classification and entity extraction. But a simple entity extraction wasn't enough for us, we wanted a system that would take a command as an input and output the desired actions.\\
+\tab To convert spoken data in actions subset, we had to create our own natural language understanding system (\href{http://github.com/walkingmachine/wm\_nlu}{http://github.com/walkingmachine/wm\_nlu}. To do this, we based ourself on rasa nlu\cite{rasa}, an open-source nlp tool for intent classification and entity extraction. But a simple entity extraction wasn't enough for us, we wanted a system that would take a command as an input and output the desired actions.\\
 
-To do this, our first step was to create a dataset for the entity classification. Based on the GPSRCmdGen, we generated sentences which we hand labeled by attributing an entity to each specific type of sentence.      
+To do this, our first step was to create a dataset for the entity classification. Based on the GPSRCmdGen, we generated sentences which we hand labeled by attributing an entity to each specific type of sentence paired with specifics parameters.\\
+
+We then built a ROS service which take a sentence as an input, classify the main intent using our dataset and return an array of actions that the robot need to execute according to the command. Our system is dependent of our environment reprensentation package (\href{http://github.com/walkingmachine/wonderland}{http://github.com/walkingmachine/wonderland}) since queries are made to our database.
 
 \begin{figure}
   \centering
