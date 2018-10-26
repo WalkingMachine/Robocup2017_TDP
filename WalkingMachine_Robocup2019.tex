@@ -73,8 +73,6 @@ SARA, our creation, was designed for polyvalent human-robot interaction as well 
 
 \section{Mechanical improvement}
 
-\subsection{Mechanical}
-
 \tab To improve our robot habilities, we decide to add a vertical linear actuator, more specifically, a TL5 column made by TiMOTION. This will add a degree of freedom, giving us a wider range of motion to reach objects on the floor or higher on the cupboard shelves. This will be really helpful for challenge like storing groceries where the objects can be anywhere in the cupboard. \\
 
 \begin{figure}[h!]
@@ -105,32 +103,57 @@ We then built a ROS service which take a sentence as an input, classify the main
 
 \begin{figure}
   \centering
-  \includegraphics[width=200pt]{images/wm_nlu.png}
+  \includegraphics[width=300pt]{images/wm_nlu.png}
   \caption{Natural language understanding process}
 \end{figure} 
 
 \subsection{Sound localization}
-\tab
+\tab To improve our performances mainly in the SPR challenge and to add reactivity to our robot, we decided to add a Matrix Creator which include a microphone array coupled with a Raspberry Pi 3. We decided to use ODAS  \cite{ODAS} which stands for Open embeddeD Audition System. This is a library dedicated to perform sound source localization, tracking, separation and post-filtering, developped by IntRoLab\cite{Introlab} from Sherbrooke university in Quebec.\\ 
+
+At first, a simple sound source localization is used. But then a Kalman filter is applied to perform sound source tracking. It help us eliminated simple noise to tracking a person talking to the robot. We can even go further with this library by using the sound source separation which help us separate the sound incoming form different speaker.\\
+
+We decided to build our own ROS wrapper around ODAS considering the lack of documentation surrounding the project. Our wrapper offer multiple topics which publish either the differents sound sources localization, the tracked sound source or the separated sound sources. We can then easily identify the location of a speaker giving a command to our robot.\\
 
 \subsection{Object recognition}
 \tab For our object recognition, we use YOLO \cite{yolo}, a real-time object detection. It does not only detect various object but it also predicts the bounding boxes of the detected object. It uses a single neural network which is applied to the image. Multiple regions are then created and are used to predict the bounding boxes. Each of them also contains the predicted probability which is used to filter the predicted objects. The advantage of this system is that it can detect multiple objects in a real-time scenario.\\
+
+This year we are putting our efforts on a way to simplify the dataset creation. Since we are retraining over ImageNet pre-trained weight, we need to find a fast way to train the provided objects from the arena. Our plan is to use a rotating platform with a greenscreen, that way we could automate the data collection process by using background substraction technique with OpenCV and contour detection to find the object bounding box. Using the substracted object, we can now apply different transformations to do dataset augmentation. 
+ 
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.3\linewidth}
+    \includegraphics[width=\linewidth]{images/bounding_inrange.png}
+    \caption{InRange filter}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\linewidth}
+    \includegraphics[width=\linewidth]{images/bounding_invert.png}
+    \caption{Invert image}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\linewidth}
+    \includegraphics[width=\linewidth]{images/bounding_contours.png}
+    \caption{Contour detection}
+  \end{subfigure}
+  \caption{Dataset creation process with wm_dataset_preparation}
+  \label{fig:coffee}
+\end{figure}  
+ 
  
 
 \subsection{Objects and people tracking}
 
 \begin{figure}
   \centering
-  \includegraphics[width=200pt]{images/wm_data_collector.png}
+  \includegraphics[width=300pt]{images/wm_data_collector.png}
   \caption{ wm\_data\_collector process}
 \end{figure} 
 
 \newpage
 
 \section{Conclusions and future work} 
-\notes{Pourrait être rephrasé.}
-As you can see, despite being a group of undergraduate students, our team is about to catch up with the rest of the league. We’ve recently put a lot of efforts into stabilizing our platform and fixing as many bugs as possible to give us a strong foot to move forward.\\
+\notes{Pourrait être rephrasé.}\\
+\tab As you can see, despite being a group of undergraduate students, our team is about to catch up with the rest of the league. We’ve recently put a lot of efforts into stabilizing our platform and fixing as many bugs as possible to give us a strong foot to move forward.\\
 
-\notes{Actualiser le dernier paragraphe.}
+\notes{Actualiser le dernier paragraphe.}\\
 With its new swappable batteries system, object detection network and natural language processing, our robot has become a fully functional autonomous platform allowing us to focus our efforts on the challenges themselves instead of continuously fixing our hardware.
 \\
 
