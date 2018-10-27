@@ -29,10 +29,12 @@ Specifications for robot SARA are as follows:
 \rowcolor[HTML]{EAEFF6} 
 \textbf{Additional sensors} & Hokuyo UTM-30LX on base                                                          \\
 \rowcolor[HTML]{FFFFFF} 
-\textbf{Microphone}         & Rode microphone and Matrix Creator											                         \\
+\textbf{Microphone}         & Rode microphone											                         \\
 \rowcolor[HTML]{EAEFF6} 
-\textbf{Batteries}          & 2x 20V Dewalt drill battery 5aH                                                 \\
+\textbf{Sound localization} & Raspberry Pi 3 and Matrix Creator											                         \\
 \rowcolor[HTML]{FFFFFF} 
+\textbf{Batteries}          & 2x 20V Dewalt drill battery 5aH                                                 \\
+\rowcolor[HTML]{EAEFF6} 
 \textbf{Computer}           & 1x Lenovo p50 with 32GB RAM and nVidia Quadro M2000 4GB, 1x Raspberry Pi 3, 1x Nvidia Jetson TX2       \\ \hline
 \end{tabular}
 \caption{Robot's hardware description}
@@ -49,10 +51,11 @@ For our robot we are using the following software:
 \begin{itemize}
 	\item Platform: Robotic Operating System (ROS) Kinetic on Ubuntu 16.04
 	\item Navigation, localization and mapping: \href{http://wiki.ros.org/gmapping}{Gmapping}, \href{http://wiki.ros.org/amcl}{AMCL}, \href{http://wiki.ros.org/pointcloud_to_laserscan}{pointcloud\_to\_laserscan}
-	\item Face recognition: \href{http://wiki.ros.org/people}{People}
-	\item Speech recognition: \href{https://github.com/WalkingMachine/lab_ros_speech_to_text}{Google Speech API}
-	\item Speech comprehension: \href{http://sag.art.uniroma2.it/lu4r.html}{LU4R}, \href{https://github.com/WalkingMachine/lu4r_ros}{lu4r\_ros}
-	\item Speech generation: \href{https://doc.ubuntu-fr.org/svoxpico}{Svoxpico}
+	\item Face recognition: \href{http:/github.com/walkingmachine/ros\_face\_recognition}{ros\_face\_recognition}
+	\item Speech recognition: \href{https://github.com/WalkingMachine/lab\_ros\_speech\_to_text}{Google Speech API}
+	\item Speech comprehension: \href{https://github.com/WalkingMachine/wm\_nlu}{wm\_nlu}
+	\item Sound localization: \href{https://github.com/WalkingMachine/wm\_odas\_ros\_wrapper}{wm\_odas\_ros\_wrapper}
+	\item Speech generation: \href{https://doc.ubuntu-fr.org/svoxpico}{Svoxpico},\href{https://github.com/marytts/marytts}{MaryTTS}
 	\item Object recognition: \href{https://github.com/WalkingMachine/wm_darknet}{Darknet with YOLO v2 }
 	\item Arm control: \href{http://wiki.ros.org/moveit}{MoveIt} and \href{https://github.com/Kinovarobotics/kinova-ros}{Kinova API}
 	\item Task executor: \href{http://wiki.ros.org/flexbe}{Flexbe} 

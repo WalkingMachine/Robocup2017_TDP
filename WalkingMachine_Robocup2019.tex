@@ -71,25 +71,34 @@ This paper gives details about the RoboCup@Home league team Walking Machine, fro
 
 SARA, our creation, was designed for polyvalent human-robot interaction as well as efficient navigation and object manipulation. Our robot is mounted on four mecanum wheels powered by Roboteq drives, has one arm mimicking a normal human arm, and sensors for communication and navigation. Our team has developed knowledge in object and people detection/recognition, as well as navigation using a laser scanner, odometry on the wheels and a Asus Xtion camera. All of these parts are interfaced through ROS (Robot Operating System). \\
 
+In the rest of this paper we will present in the second section the mechanical improvements we've made to our robot to overcome the differents challenge. In section 3, the different packages we've develop are described. And finally in section 4 this paper will conclude and explore the expected features for next year Robocup. \\
+
 \section{Mechanical improvement}
 
 \tab To improve our robot habilities, we decide to add a vertical linear actuator, more specifically, a TL5 column made by TiMOTION. This will add a degree of freedom, giving us a wider range of motion to reach objects on the floor or higher on the cupboard shelves. This will be really helpful for challenge like storing groceries where the objects can be anywhere in the cupboard. \\
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}[b]{0.2\linewidth}
-    \includegraphics[width=\linewidth]{images/robot_low.PNG}
-    \caption{Lowest point}
+  \begin{subfigure}[b]{0.15\linewidth}
+    \includegraphics[width=\linewidth]{images/sara_render_retracted.png}
+    \caption{Robot retracted}
   \end{subfigure}
-  \begin{subfigure}[b]{0.2\linewidth}
-    \includegraphics[width=\linewidth]{images/robot_high.PNG}
-    \caption{Highest point}
+  \hspace{1.5cm}
+  \begin{subfigure}[b]{0.15\linewidth}
+    \includegraphics[width=\linewidth]{images/sara_render_extracted.png}
+    \caption{Robot extracted}
   \end{subfigure}
   \caption{S.A.R.A. linear actuator motion range}
   \label{fig:coffee}
 \end{figure}
 
 We also decided to improve our wrist by adding a gearbox, giving it more strength. We took the decision to improve it after having problems with the gripper being too heavy.  
+
+\begin{figure}
+  \centering
+  \includegraphics[width=125pt]{images/wrist.png}
+  \caption{Improved wrist 3D render}
+\end{figure} 
 
 \newpage
 \section{Software}
@@ -115,9 +124,19 @@ At first, a simple sound source localization is used. But then a Kalman filter i
 We decided to build our own ROS wrapper around ODAS considering the lack of documentation surrounding the project. Our wrapper offer multiple topics which publish either the differents sound sources localization, the tracked sound source or the separated sound sources. We can then easily identify the location of a speaker giving a command to our robot.\\
 
 \subsection{Object recognition}
-\tab For our object recognition, we use YOLO \cite{yolo}, a real-time object detection. It does not only detect various object but it also predicts the bounding boxes of the detected object. It uses a single neural network which is applied to the image. Multiple regions are then created and are used to predict the bounding boxes. Each of them also contains the predicted probability which is used to filter the predicted objects. The advantage of this system is that it can detect multiple objects in a real-time scenario.\\
+\subsubsection{Recognition system}
+\hfill\\
 
-This year we are putting our efforts on a way to simplify the dataset creation. Since we are retraining over ImageNet pre-trained weight, we need to find a fast way to train the provided objects from the arena. Our plan is to use a rotating platform with a greenscreen, that way we could automate the data collection process by using background substraction technique with OpenCV and contour detection to find the object bounding box. Using the substracted object, we can now apply different transformations to do dataset augmentation. 
+For our object recognition, we use YOLO \cite{yolo}, a real-time object detection. It does not only detect various object but it also predicts the bounding boxes of the detected object. It uses a single neural network which is applied to the image. Multiple regions are then created and are used to predict the bounding boxes. Each of them also contains the predicted probability which is used to filter the predicted objects. The advantage of this system is that it can detect multiple objects in a real-time scenario.\\
+
+\subsubsection{Dataset creation tool}
+\hfill\\
+
+This year we are putting our efforts on a way to simplify the dataset creation. During the last Robocup in Montreal, it was the first time our team had an efficient object recognition system. But our flaw was in the production of our dataset. Since we are retraining over ImageNet pre-trained weight, we need to provide a large dataset and for this we had to do the all the bounding boxes by hand for every images.\\
+ 
+We decided that we needed to find a faster way to train the provided objects from the arena. Our plan is now to use a rotating platform with a greenscreen, that way we could automate the data collection process by using background substraction technique with OpenCV and contour detection to find the object bounding box. Using the substracted object, we can now apply different transformations to do dataset augmentation. \\
+
+For the moment, we only created the software part to automated the bounding boxes. As you can see, on the Fig.4 a), we applied an InRange filter, on the Fig.4 b), we inverted the image to finally apply the findcontour function on Fig.4 c). By taking the largest contour found, we can easily calculate the bouding box of the object. \\
  
 \begin{figure}[h!]
   \centering
@@ -133,10 +152,9 @@ This year we are putting our efforts on a way to simplify the dataset creation. 
     \includegraphics[width=\linewidth]{images/bounding_contours.png}
     \caption{Contour detection}
   \end{subfigure}
-  \caption{Dataset creation process with wm_dataset_preparation}
+  \caption{Dataset creation process with wm\_dataset\_preparation}
   \label{fig:coffee}
 \end{figure}  
- 
  
 
 \subsection{Objects and people tracking}
@@ -150,12 +168,7 @@ This year we are putting our efforts on a way to simplify the dataset creation. 
 \newpage
 
 \section{Conclusions and future work} 
-\notes{Pourrait être rephrasé.}\\
-\tab As you can see, despite being a group of undergraduate students, our team is about to catch up with the rest of the league. We’ve recently put a lot of efforts into stabilizing our platform and fixing as many bugs as possible to give us a strong foot to move forward.\\
-
-\notes{Actualiser le dernier paragraphe.}\\
-With its new swappable batteries system, object detection network and natural language processing, our robot has become a fully functional autonomous platform allowing us to focus our efforts on the challenges themselves instead of continuously fixing our hardware.
-\\
+\tab In this paper, we presented how we are developping our own robotic platform for the Robocup@Home competition. 
 
 \include{RobotDescription}
 	
