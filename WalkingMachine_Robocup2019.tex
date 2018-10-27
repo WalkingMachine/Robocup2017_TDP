@@ -119,6 +119,12 @@ We then built a ROS service which take a sentence as an input, classify the main
 \subsection{Sound localization}
 \tab To improve our performances mainly in the SPR challenge and to add reactivity to our robot, we decided to add a Matrix Creator which include a microphone array coupled with a Raspberry Pi 3. We decided to use ODAS  \cite{ODAS} which stands for Open embeddeD Audition System. This is a library dedicated to perform sound source localization, tracking, separation and post-filtering, developped by IntRoLab\cite{Introlab} from Sherbrooke university in Quebec.\\ 
 
+\begin{figure}
+  \centering
+  \includegraphics[width=300pt]{images/odas.png}
+  \caption{ sound source localization from ODAS web visualizer \cite{ODAS}}
+\end{figure} 
+
 At first, a simple sound source localization is used. But then a Kalman filter is applied to perform sound source tracking. It help us eliminated simple noise to tracking a person talking to the robot. We can even go further with this library by using the sound source separation which help us separate the sound incoming form different speaker.\\
 
 We decided to build our own ROS wrapper around ODAS considering the lack of documentation surrounding the project. Our wrapper offer multiple topics which publish either the differents sound sources localization, the tracked sound source or the separated sound sources. We can then easily identify the location of a speaker giving a command to our robot.\\
@@ -128,6 +134,12 @@ We decided to build our own ROS wrapper around ODAS considering the lack of docu
 \hfill\\
 
 For our object recognition, we use YOLO \cite{yolo}, a real-time object detection. It does not only detect various object but it also predicts the bounding boxes of the detected object. It uses a single neural network which is applied to the image. Multiple regions are then created and are used to predict the bounding boxes. Each of them also contains the predicted probability which is used to filter the predicted objects. The advantage of this system is that it can detect multiple objects in a real-time scenario.\\
+
+\begin{figure}
+  \centering
+  \includegraphics[width=300pt]{images/wm_data_collector.png}
+  \caption{ CHANGER IMAGE POUR OBJECT RECOGNITION}
+\end{figure} 
 
 \subsubsection{Dataset creation tool}
 \hfill\\
@@ -156,8 +168,22 @@ For the moment, we only created the software part to automated the bounding boxe
   \label{fig:coffee}
 \end{figure}  
  
+\subsection{Environment modelling}
+\tab To have a good reprensentation of the robot environment, we develop our own environment modeling we called Wonderland \cite{wonderland}. For this, we can insert in our database all the known information like the furnitures, the rooms and the objects. Based on this, our robot will interact with the database through a web API, which makes it ROS agnostic and could be use by any application even if it's not robotics oriented.\\
 
-\subsection{Objects and people tracking}
+\begin{figure}
+  \centering
+  \includegraphics[width=300pt]{images/wonderland.png}
+  \caption{ wm\_data\_collector process}
+\end{figure} 
+
+To make our life easier, we also implemented an easy way to place the objects position through Rviz. For the moment we use the pose estimation tool but we are planning to develop our own tool in Rviz next year.\\
+
+With our environment modeling system, our NLU node can interact with it to confirm that a query is valid, by verifying by example the existance of a specific room or a specific object. \\
+
+\section{Objects and people tracking}
+
+\tab To keep track of the many objects and people our robot sees, we have developed our tracking system named wm\_data\_collector\cite{wm_data_collector}. Our process, as you can see on Fig8, imply the use of our different sensors to keep track of different caracteristics defining our tracked entities. Once we gather the information, we use a simple kalman filter but we are planning to use better algorithm in the future like dlib correlation tracker. \\
 
 \begin{figure}
   \centering
@@ -165,35 +191,35 @@ For the moment, we only created the software part to automated the bounding boxe
   \caption{ wm\_data\_collector process}
 \end{figure} 
 
-\newpage
 
 \section{Conclusions and future work} 
 \tab In this paper, we presented how we are developping our own robotic platform for the Robocup@Home competition. It has many habilities like person and gender recognition, pose detection, environmental reasoning, object recognition and manipulation and many more. Since we are mainly undergraduate students with no teacher support, our main efforts goes in the learning proccess and the implimetentation part. Despite a low scientific contribution, we are actually developing some package that we hope will be usable by other teams in a near future.\\
 
-This year we are planning to implement gesture recognition for the restaurant challenge and plannar and object segmentation to detect unknowned objects mainly for the storing groceries challenge. We'll also be working on our Natural Language Understanding package to add more features for the more complex challenges in the GPSR. \\ 
+This year we are planning to implement gesture recognition for the restaurant challenge and plannar and object segmentation to detect unknowned objects mainly for the storing groceries challenge. For this we'll simply use PCL library with the RANSAC algorithm using a plane model and the K-mean algorithm for object segmentation. Finally we'll also be working to improve our Natural Language Understanding package to add more features for the more complex challenges in the GPSR. \\ 
+
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \include{RobotDescription}
 	
 \section*{Team members}
-André-Philippe Audette,
-Nicolas Bernatchez,
-Pierre-Emmanuel Billeau,
-Jeffrey Cousineau, 
-Raphael Duchaine,
-Quentin Gaillot,
-Louis-Charle Labarre, 
-Philippe La Madeleine,  
-Redouane Laref,
-Vincent Lavoie-Marchildon,
-Huynh-Anh Le,
-Lucas Maurice,
-Alexandre Mongrain,
-Jimmy Poirier,
-Veronica Romero Rosales
 
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{references}
+\begin{tabular}{lll}
+   
+André-Philippe Audette &    & 	Electrical engineering bachelor student \\
+Nicolas Bernatchez &    & 		Manufacturing engineering bachelor student \\
+Jeffrey Cousineau &    & 		Manufacturing engineering bachelor student \\
+Raphael Duchaine &    & 		Software engineering bachelor student \\
+Quentin Gaillot &    & 			Manufacturing engineering master student \\
+Louis-Charle Labarre &    & 	Manufacturing engineering bachelor student \\ 
+Philippe La Madeleine &    & 	Manufacturing engineering bachelor student \\ 
+Redouane Laref &    & 			Manufacturing engineering bachelor student \\
+Huynh-Anh Le &    & 			Manufacturing engineering bachelor student \\
+Lucas Maurice &    & 			Software engineering bachelor student \\
+Alexandre Mongrain  &    & 		Manufacturing engineering bachelor student \\
+Jimmy Poirier &    & 			Electrical engineering bachelor student \\
+Veronica Romero Rosales  &   & Manufacturing engineering bachelor student \\
 
-
+\end{tabular}
 \end{document} 
