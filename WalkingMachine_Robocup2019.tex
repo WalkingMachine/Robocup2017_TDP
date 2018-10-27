@@ -68,10 +68,10 @@ This paper gives details about the RoboCup@Home league team Walking Machine, fro
 \section{Introduction}
 \tab Walking Machine’s team is a young team from Montreal, Quebec, in Canada, composed of engineering students in the field of mechanical, electrical and software engineering. We have been working really hard to improve our robot for the next year Robocup@Home competition. As this would be our fourth participation, we learned a lot at Montreal Robocup and we made many improvements to get better results, mostly on the software side. In the past, the team went in many competitions like the Eurobot, but made the leap for the RoboCup@Home competition to get a bigger challenge and to get an opportunity to bring novelty in the scientific community surrounding robotic. \\
 
+SARA, our creation, was designed for polyvalent human-robot interaction as well as efficient navigation and object manipulation. Our robot is mounted on four mecanum wheels powered by Roboteq drives, a 7 DoF arm and sensors for communication and navigation. Our team has developed knowledge in object and people detection/recognition, as well as navigation using a laser scanner, odometry on the wheels and a Asus Xtion camera. All of these parts are interfaced through ROS (Robot Operating System). \\
 
-SARA, our creation, was designed for polyvalent human-robot interaction as well as efficient navigation and object manipulation. Our robot is mounted on four mecanum wheels powered by Roboteq drives, has one arm mimicking a normal human arm, and sensors for communication and navigation. Our team has developed knowledge in object and people detection/recognition, as well as navigation using a laser scanner, odometry on the wheels and a Asus Xtion camera. All of these parts are interfaced through ROS (Robot Operating System). \\
+In the rest of this paper we will present in the 2nd section the mechanical improvements we've made to our robot to overcome the differents challenge. In section 3, the different packages we've develop are described. And finally this paper will conclude and explore the expected features for next year Robocup.
 
-In the rest of this paper we will present in the second section the mechanical improvements we've made to our robot to overcome the differents challenge. In section 3, the different packages we've develop are described. And finally in section 4 this paper will conclude and explore the expected features for next year Robocup. \\
 
 \section{Mechanical improvement}
 
@@ -168,7 +168,9 @@ For the moment, we only created the software part to automated the bounding boxe
 \newpage
 
 \section{Conclusions and future work} 
-\tab In this paper, we presented how we are developping our own robotic platform for the Robocup@Home competition. 
+\tab In this paper, we presented how we are developping our own robotic platform for the Robocup@Home competition. It has many habilities like person and gender recognition, pose detection, environmental reasoning, object recognition and manipulation and many more. Since we are mainly undergraduate students with no teacher support, our main efforts goes in the learning proccess and the implimetentation part. Despite a low scientific contribution, we are actually developing some package that we hope will be usable by other teams in a near future.\\
+
+This year we are planning to implement gesture recognition for the restaurant challenge and plannar and object segmentation to detect unknowned objects mainly for the storing groceries challenge. We'll also be working on our Natural Language Understanding package to add more features for the more complex challenges in the GPSR. \\ 
 
 \include{RobotDescription}
 	
