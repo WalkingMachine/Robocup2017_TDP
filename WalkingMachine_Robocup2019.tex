@@ -68,7 +68,7 @@ This paper gives details about the RoboCup@Home league team Walking Machine, fro
 \section{Introduction}
 \tab Walking Machine’s team is a young team from Montreal, Quebec, in Canada, composed of engineering students in the field of mechanical, electrical and software engineering. We have been working really hard to improve our robot for next year's RoboCup@Home competition. As this would be our fourth participation, we learned a lot at RoboCup Montreal and we made many improvements to get better results, mostly on the software side. In the past, the team went in many competitions like the Eurobot but made the leap for the RoboCup@Home competition to get a bigger challenge and to get an opportunity to bring novelty in the scientific community surrounding robotics.\\
 
-S.A.R.A., our creation, was designed for polyvalent human-robot interaction as well as efficient navigation and object manipulation. Our robot is mounted on four mecanum wheels powered by Roboteq drives, a 7 DoF arm and sensors for communication and navigation. Our team has developed knowledge in the object and people detection/recognition, as well as navigation using a laser scanner, odometry on the wheels and an Asus Xtion camera. All of these parts are interfaced through ROS (Robot Operating System). \\
+S.A.R.A. was designed for polyvalent human-robot interaction as well as efficient navigation and object manipulation. Our robot is mounted on four mecanum wheels, have a 7 DoF arm and use sensors for communication and navigation. Our team has developed knowledge in the object and people detection/recognition, as well as navigation using a laser scanner and an Asus Xtion camera. All of these parts are interfaced through ROS(Robot Operating System). \\
 
 In the rest of this paper, we will present in the mechanical improvements we've made to our robot to overcome the different challenge, the different packages we've developed are described, and finally, this paper will conclude and explore the expected features for next year Robocup.
 
@@ -118,12 +118,12 @@ We then built a ROS service which takes a sentence as an input, classify the mai
 \end{figure} 
 
 \subsection{Sound localization}
-\tab To improve our performances mainly in the SPR challenge and to add reactivity to our robot, we decided to add a Matrix Creator which includes a microphone array coupled with a Raspberry Pi 3. We decided to use ODAS  \cite{ODAS} which stands for Open embeddeD Audition System. This is a library dedicated to performing sound source localization, tracking, separation and post-filtering, developed by IntRoLab\cite{Introlab} from Sherbrooke University in Quebec.\\ 
+\tab To improve our performances mainly in the SPR challenge and to add reactivity to our robot, we decided to add a Matrix Creator which includes a microphone array coupled with a Raspberry Pi 3. We decided to use ODAS  \cite{odas} which stands for Open embeddeD Audition System. This is a library dedicated to performing sound source localization, tracking, separation and post-filtering, developed by IntRoLab\cite{Introlab} from Sherbrooke University in Quebec.\\ 
 
 \begin{figure}
   \centering
   \includegraphics[width=300pt]{images/odas.png}
-  \caption{ sound source localization from ODAS web visualizer \cite{ODAS}}
+  \caption{ sound source localization from ODAS web visualizer \cite{odas}}
 \end{figure} 
 
 At first, a simple sound source localization is used. Then a Kalman filter is applied to perform sound source tracking. It helps us eliminate simple noise to track the person talking to the robot. We can even go further with this library by using the sound source separation which helps us separate the sound incoming from the different audio sources.\\
@@ -136,10 +136,19 @@ We decided to build our own ROS wrapper around ODAS considering the lack of docu
 
 For our object recognition, we use YOLO \cite{yolo}, a real-time object detection. It does not only detect various object but it also predicts the bounding boxes of the detected object. It uses a single neural network which is applied to the image. Multiple regions are then created and are used to predict the bounding boxes. Each of them also contains the predicted probability which is used to filter the predicted objects. The advantages of this system is that it can detect multiple objects in a real-time scenario.\\
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=300pt]{images/wm_data_collector.png}
-  \caption{ CHANGER IMAGE POUR OBJECT RECOGNITION}
+  \begin{subfigure}[b]{0.43\linewidth}
+    \includegraphics[width=\linewidth]{images/input_objects.JPEG}
+    \caption{Input image}
+  \end{subfigure}
+  \hspace{1.5cm}
+  \begin{subfigure}[b]{0.43\linewidth}
+    \includegraphics[width=\linewidth]{images/output_objects.png}
+    \caption{Output image}
+  \end{subfigure}
+  \caption{Custom model trained during Robocup 2018}
+  \label{fig:coffee}
 \end{figure} 
 
 \subsubsection{Dataset creation tool}
@@ -184,7 +193,7 @@ With our environment modeling system, our NLU node can interact with it to confi
 
 \section{Objects and people tracking}
 
-\tab To keep track of the many objects and people our robot sees, we have developed our tracking system named wm\_data\_collector \cite{data_collector}. Our process, as you can see on Fig8, imply the use of our various sensors to keep track of different characteristics defining our tracked entities. Once we gather the information, we use a simple Kalman filter but we are planning to use a better algorithm in the future like dlib correlation tracker. \\
+\tab To keep track of the many objects and people our robot sees, we have developed our tracking system named wm\_data\_collector \cite{datacollector}. Our process, as you can see on Fig8, imply the use of our various sensors to keep track of different characteristics defining our tracked entities. Once we gather the information, we use a simple Kalman filter but we are planning to use a better algorithm in the future like dlib correlation tracker. \\
 
 \begin{figure}
   \centering
@@ -198,7 +207,7 @@ With our environment modeling system, our NLU node can interact with it to confi
 
 This year we are planning to implement gesture recognition for the restaurant challenge and, planar and object segmentation to detect unknown objects mainly for the storing groceries challenge. For this, we'll simply use PCL library with the RANSAC algorithm using a plane model and the K-mean algorithm for object segmentation. Finally, we'll also be working to improve our Natural Language Understanding package to add more features for the more complex challenges in the GPSR.\\ 
 
-
+\nocite{*}
 \bibliographystyle{plain}
 \bibliography{references}
 
@@ -211,7 +220,7 @@ This year we are planning to implement gesture recognition for the restaurant ch
 André-Philippe Audette &    & 	Electrical engineering bachelor student \\
 Nicolas Bernatchez &    & 		Manufacturing engineering bachelor student \\
 Jeffrey Cousineau &    & 		Manufacturing engineering bachelor student \\
-Raphael Duchaine &    & 		Software engineering bachelor student \\
+Raphaël Duchaîne &    & 		Software engineering bachelor student \\
 Quentin Gaillot &    & 			Manufacturing engineering master student \\
 Louis-Charle Labarre &    & 	Manufacturing engineering bachelor student \\ 
 Philippe La Madeleine &    & 	Manufacturing engineering bachelor student \\ 
