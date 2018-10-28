@@ -170,7 +170,7 @@ For the moment, we only created the software part to automated the bounding boxe
 \end{figure}  
  
 \subsection{Environment modeling}
-\tab To have a good representation of the robot's environment, we developed our own environment modeling called Wonderland \cite{wonderland}. For this, we can insert in our database all the known information like the furniture, the rooms, and the objects. Based on this, our robot will interact with the database through a web API, which makes it ROS agnostic and could be used by any application even if it's not robotics oriented.\\
+\tab To have a good representation of the robot's environment, we developed our own environment modeling called Wonderland. For this, we can insert in our database all the known information like the furniture, the rooms, and the objects. Based on this, our robot will interact with the database through a web API, which makes it ROS agnostic and could be used by any application even if it's not robotics oriented.\\
 
 \begin{figure}
   \centering
@@ -184,7 +184,7 @@ With our environment modeling system, our NLU node can interact with it to confi
 
 \section{Objects and people tracking}
 
-\tab To keep track of the many objects and people our robot sees, we have developed our tracking system named wm\_data\_collector \cite{wm_data_collector}. Our process, as you can see on Fig8, imply the use of our various sensors to keep track of different characteristics defining our tracked entities. Once we gather the information, we use a simple Kalman filter but we are planning to use a better algorithm in the future like dlib correlation tracker. \\
+\tab To keep track of the many objects and people our robot sees, we have developed our tracking system named wm\_data\_collector \cite{data_collector}. Our process, as you can see on Fig8, imply the use of our various sensors to keep track of different characteristics defining our tracked entities. Once we gather the information, we use a simple Kalman filter but we are planning to use a better algorithm in the future like dlib correlation tracker. \\
 
 \begin{figure}
   \centering
