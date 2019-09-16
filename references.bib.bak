@@ -1,3 +1,7 @@
+%TODO : Revise references
+
+
+
 @article{coordinate,
  author = {Wright, Stephen J.},
  title = {Coordinate Descent Algorithms},
@@ -42,6 +46,22 @@
 	Year = {2016}
 }
 
+
+@misc{svox,
+	title = {Svox package : {Ubuntu}},
+	howpublished = "\url{https://launchpad.net/ubuntu/precise/+source/svox/}",
+	urldate = {2017-03-12},
+	file = {Precise (12.04) \: svox package \: Ubuntu:/home/jeffrey/.zotero/zotero/grkufz47.default/zotero/storage/RTI2I94M/svox.html:text/html}
+}
+
+
+@misc{lu4r,
+	title = {{LU4R Project} - adaptive spoken {Language} {Understanding} {For} {Robots}},
+	
+	urldate = {2017-03-12},
+	file = {LU4R Project - adaptive spoken Language Understanding For Robots:/home/jeffrey/.zotero/zotero/grkufz47.default/zotero/storage/9AAHE9E8/lu4r.html:text/html}
+}
+
 @article{yolo,
 	title={YOLO9000: Better, Faster, Stronger},
 	author={Redmon, Joseph and Farhadi, Ali},
@@ -53,6 +73,13 @@
 	author = {Zhe Cao and Tomas Simon and Shih-En Wei and Yaser Sheikh},
 	booktitle = {CVPR},
 	title = {Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields},
+	year = {2017}
+}
+
+@inproceedings{simon2017hand,
+	author = {Tomas Simon and Hanbyul Joo and Iain Matthews and Yaser Sheikh},
+	booktitle = {CVPR},
+	title = {Hand Keypoint Detection in Single Images using Multiview Bootstrapping},
 	year = {2017}
 }
 
@@ -69,25 +96,5 @@
 	year = {2004},
 	isbn = {026219502X},
 	publisher = {Bradford Company},
-	address = {Scituate, MA, USA}
+	address = {Scituate, MA, USA},
 } 
-
-@misc{rasa, 
-	title={Rasa NLU: Language Understanding for chatbots and AI assistants}, 					url={https://rasa.com/docs/nlu/}, 
-	journal={Rasa: Open source conversational AI}
-}
-
-@misc{datacollector, 
-	title={wm\_data\_collector}, 					
-	url={http://github.com/walkingmachine/wm\_data\_collector}, 
-	journal={wm\_data\_collector github repo}
-}
-
-@misc{odas,
-  author = {IntRoLab},
-  title = {odas},
-  year = {2018},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/introlab/odas}}
-}
